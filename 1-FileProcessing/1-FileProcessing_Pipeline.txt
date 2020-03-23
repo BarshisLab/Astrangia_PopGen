@@ -1,0 +1,74 @@
+cklep001
+P0!0bata
+
+################
+Authors: Hannah E. Aichelman and Daniel J. Barshis
+Contact Info: hannahaichelman@gmail.com
+
+This document details the process of calling single nucleotide polymorphisms (SNPs) and determining population structure between Virginia and Rhode Island populations of the temperate scleractinian coral Astrangia poculata. 
+These analyses were conducted on Old Dominion University's secure computing cluster Turing, which runs the Slurm language. 
+Therefore, all job submission commands are specific to Slurm, but with the provided scripts this pipeline can be adapted to other computing clusters. 
+
+Throughout the pipeline, the designation <code> </code> will enclose code and <output> </output> designate any corresponding output to the code.  
+
+
+##############################################
+STEP 1. PROCESS FILES FROM SEQUENCING FACILITY
+##############################################
+
+#--------------------------------------- Unzip all .fastq.gz files
+
+#Submitted as job , contents of job script:
+#Note that all job scripts will be written this way throughout the pipeline.
+
+<code>
+#!/bin/bash -l
+#SBATCH -o gunzipfiles.txt
+#SBATCH -n 1
+#SBATCH --mail-user=haich001@odu.edu
+#SBATCH --mail-type=END
+#SBATCH --job-name=gunzipfiles_hea
+
+gunzip /cm/shared/courses/dbarshis/barshislab/Hannah/2018-Feb_Berkeley/sandbox/Barshis/*.fastq.gz
+</code>
+
+#--------------------------------------- Re-name all .fastq files using the renamer_advbioinf.py script
+
+<code>
+[haich001@turing1 Barshis]$ pwd
+/cm/shared/courses/dbarshis/barshislab/Hannah/2018-Feb_Berkeley/sandbox/Barshis
+</code>
+<code>
+#!/bin/bash -l
+
+#SBATCH -o renamefiles_hannah.txt
+#SBATCH -n 1
+#SBATCH --mail-user=haich001@odu.edu
+#SBATCH --mail-type=END
+#SBATCH --job-name=renamefiles_hannah
+
+/cm/shared/courses/dbarshis/barshislab/Hannah/2018-Feb_Berkeley/sandbox/Barshis/renamer_advbioinf.py renamingtable_complete.txt
+</code>
+
+#--------------------------------------- Trim, clip, and filter all .fastq files using Trimclipfilterstatsbatch_advbioinf.py
+
+<code>
+!/bin/bash -l
+
+#SBATCH -o TrimClipFilter.txt
+#SBATCH -n 1
+#SBATCH --mail-user=haich001@odu.edu
+#SBATCH --mail-type=END
+#SBATCH --job-name=TrimClipFilter_hea
+
+/cm/shared/courses/dbarshis/barshislab/Hannah/2018-Feb_Berkeley/sandbox/Barshis/Trimclipfilterstatsbatch_advbioinf.py adapterlist_advbioinf.txt *.fastq
+</code>
+
+#output file from this step is 'trimclipstats.txt'
+
+#--------------------------------------- Get summary of the trim, clip, filter step in a more readable format
+
+<code>
+/cm/shared/courses/dbarshis/barshislab/Hannah/2018-Feb_Berkeley/sandbox/scripts/Schafran_trimstatstable_advbioinf.py trimclipstats.txt hea_trimclipstatsout.txt
+</code>
+

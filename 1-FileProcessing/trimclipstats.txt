@@ -1,0 +1,1824 @@
+Adapter Clipping stats for: RI_B_01_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGCCAATATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 7776253 reads.
+Output: 7225664 reads.
+discarded 510243 too-short reads.
+discarded 40346 adapter-only reads.
+Adapter Clipping stats for: RI_B_01_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGTGAAACGATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 26426052 reads.
+Output: 23979969 reads.
+discarded 2307549 too-short reads.
+discarded 138534 adapter-only reads.
+Adapter Clipping stats for: RI_B_01_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACAGTTCCGTATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 26562058 reads.
+Output: 24150091 reads.
+discarded 2283697 too-short reads.
+discarded 128270 adapter-only reads.
+Adapter Clipping stats for: RI_B_02_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGATCAGATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 16043237 reads.
+Output: 5941291 reads.
+discarded 552132 too-short reads.
+discarded 9549814 adapter-only reads.
+Adapter Clipping stats for: RI_B_02_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGCCAATATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 11562910 reads.
+Output: 10456948 reads.
+discarded 944192 too-short reads.
+discarded 161770 adapter-only reads.
+Adapter Clipping stats for: RI_B_02_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGAGTGGATATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 15332381 reads.
+Output: 13842833 reads.
+discarded 1267713 too-short reads.
+discarded 221835 adapter-only reads.
+Adapter Clipping stats for: RI_B_03_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGTGAAACGATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 19655276 reads.
+Output: 17980989 reads.
+discarded 1567399 too-short reads.
+discarded 106888 adapter-only reads.
+Adapter Clipping stats for: RI_B_03_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGATCAGATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 1265839 reads.
+Output: 579161 reads.
+discarded 49056 too-short reads.
+discarded 637622 adapter-only reads.
+Adapter Clipping stats for: RI_B_03_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACATTCCTTTATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 27125761 reads.
+Output: 24560830 reads.
+discarded 2293593 too-short reads.
+discarded 271338 adapter-only reads.
+Adapter Clipping stats for: RI_B_04_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGCCAATATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 27904173 reads.
+Output: 26263710 reads.
+discarded 1481005 too-short reads.
+discarded 159458 adapter-only reads.
+Adapter Clipping stats for: RI_B_04_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGTGAAACGATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 55746216 reads.
+Output: 50674430 reads.
+discarded 4767181 too-short reads.
+discarded 304605 adapter-only reads.
+Adapter Clipping stats for: RI_B_04_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACAGTTCCGTATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 10606774 reads.
+Output: 9682129 reads.
+discarded 844214 too-short reads.
+discarded 80431 adapter-only reads.
+Adapter Clipping stats for: RI_B_05_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACATTCCTTTATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 45035274 reads.
+Output: 40837985 reads.
+discarded 3862808 too-short reads.
+discarded 334481 adapter-only reads.
+Adapter Clipping stats for: RI_B_05_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGAGTGGATATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 36978764 reads.
+Output: 33065505 reads.
+discarded 2846115 too-short reads.
+discarded 1067144 adapter-only reads.
+Adapter Clipping stats for: RI_B_05_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGATCAGATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 24585901 reads.
+Output: 17861042 reads.
+discarded 1655977 too-short reads.
+discarded 5068882 adapter-only reads.
+Adapter Clipping stats for: RI_B_06_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGCCAATATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 4220406 reads.
+Output: 3877632 reads.
+discarded 308371 too-short reads.
+discarded 34403 adapter-only reads.
+Adapter Clipping stats for: RI_B_06_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGTGAAACGATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 25916199 reads.
+Output: 23688806 reads.
+discarded 2121209 too-short reads.
+discarded 106184 adapter-only reads.
+Adapter Clipping stats for: RI_B_06_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACAGTTCCGTATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 8075608 reads.
+Output: 7408202 reads.
+discarded 608372 too-short reads.
+discarded 59034 adapter-only reads.
+Adapter Clipping stats for: RI_B_07_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACATTCCTTTATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 27749183 reads.
+Output: 25470944 reads.
+discarded 2141947 too-short reads.
+discarded 136292 adapter-only reads.
+Adapter Clipping stats for: RI_B_07_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGAGTGGATATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 27091397 reads.
+Output: 23672919 reads.
+discarded 2098214 too-short reads.
+discarded 1320264 adapter-only reads.
+Adapter Clipping stats for: RI_B_07_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGATCAGATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 3089792 reads.
+Output: 2416544 reads.
+discarded 192410 too-short reads.
+discarded 480838 adapter-only reads.
+Adapter Clipping stats for: RI_B_08_SNP.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACATTCCTTTATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 23858554 reads.
+Output: 21745116 reads.
+discarded 1867453 too-short reads.
+discarded 245985 adapter-only reads.
+Adapter Clipping stats for: RI_B_09_SNP.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACAGTTCCGTATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 14562558 reads.
+Output: 13546168 reads.
+discarded 933607 too-short reads.
+discarded 82783 adapter-only reads.
+Adapter Clipping stats for: RI_B_10_SNP.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGAGTGGATATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 34754102 reads.
+Output: 31572348 reads.
+discarded 2851173 too-short reads.
+discarded 330581 adapter-only reads.
+Adapter Clipping stats for: RI_W_01_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACACAGTGATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 6487355 reads.
+Output: 5982496 reads.
+discarded 408397 too-short reads.
+discarded 96462 adapter-only reads.
+Adapter Clipping stats for: RI_W_01_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGTCCGCACATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 27074252 reads.
+Output: 24714384 reads.
+discarded 2232055 too-short reads.
+discarded 127813 adapter-only reads.
+Adapter Clipping stats for: RI_W_01_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACAGTCAACAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 23958358 reads.
+Output: 20596201 reads.
+discarded 1825481 too-short reads.
+discarded 1536676 adapter-only reads.
+Adapter Clipping stats for: RI_W_02_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACACTTGAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 4086987 reads.
+Output: 3784860 reads.
+discarded 283255 too-short reads.
+discarded 18872 adapter-only reads.
+Adapter Clipping stats for: RI_W_02_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACACAGTGATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 15891596 reads.
+Output: 14524261 reads.
+discarded 1276021 too-short reads.
+discarded 91314 adapter-only reads.
+Adapter Clipping stats for: RI_W_02_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGTTTCGGAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 15381062 reads.
+Output: 14036451 reads.
+discarded 1256132 too-short reads.
+discarded 88479 adapter-only reads.
+Adapter Clipping stats for: RI_W_03_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGTCCGCACATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 25453120 reads.
+Output: 23249030 reads.
+discarded 2054314 too-short reads.
+discarded 149776 adapter-only reads.
+Adapter Clipping stats for: RI_W_03_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACACTTGAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 30064937 reads.
+Output: 27275712 reads.
+discarded 2629680 too-short reads.
+discarded 159545 adapter-only reads.
+Adapter Clipping stats for: RI_W_03_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACACTGATATATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 28455726 reads.
+Output: 25996038 reads.
+discarded 2231342 too-short reads.
+discarded 228346 adapter-only reads.
+Adapter Clipping stats for: RI_W_04_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACACAGTGATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 3592578 reads.
+Output: 3268825 reads.
+discarded 303528 too-short reads.
+discarded 20225 adapter-only reads.
+Adapter Clipping stats for: RI_W_04_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGTCCGCACATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 25617444 reads.
+Output: 24084664 reads.
+discarded 1437036 too-short reads.
+discarded 95744 adapter-only reads.
+Adapter Clipping stats for: RI_W_04_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACAGTCAACAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 1219200 reads.
+Output: 1047964 reads.
+discarded 88048 too-short reads.
+discarded 83188 adapter-only reads.
+Adapter Clipping stats for: RI_W_05_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACACTGATATATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 40806184 reads.
+Output: 37178582 reads.
+discarded 3244380 too-short reads.
+discarded 383222 adapter-only reads.
+Adapter Clipping stats for: RI_W_05_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGTTTCGGAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 28435474 reads.
+Output: 25839045 reads.
+discarded 2305762 too-short reads.
+discarded 290667 adapter-only reads.
+Adapter Clipping stats for: RI_W_05_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACACTTGAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 21504390 reads.
+Output: 19541731 reads.
+discarded 1670697 too-short reads.
+discarded 291962 adapter-only reads.
+Adapter Clipping stats for: RI_W_06_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACACAGTGATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 21165876 reads.
+Output: 19025247 reads.
+discarded 1733226 too-short reads.
+discarded 407403 adapter-only reads.
+Adapter Clipping stats for: RI_W_06_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGTCCGCACATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 21037739 reads.
+Output: 19303504 reads.
+discarded 1609378 too-short reads.
+discarded 124857 adapter-only reads.
+Adapter Clipping stats for: RI_W_06_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACAGTCAACAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 27685599 reads.
+Output: 23755397 reads.
+discarded 2122826 too-short reads.
+discarded 1807376 adapter-only reads.
+Adapter Clipping stats for: RI_W_07_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACACTGATATATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 40821861 reads.
+Output: 37350064 reads.
+discarded 3276738 too-short reads.
+discarded 195059 adapter-only reads.
+Adapter Clipping stats for: RI_W_07_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGTTTCGGAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 28097820 reads.
+Output: 25650758 reads.
+discarded 2233654 too-short reads.
+discarded 213408 adapter-only reads.
+Adapter Clipping stats for: RI_W_07_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACACTTGAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 18883004 reads.
+Output: 17293565 reads.
+discarded 1498790 too-short reads.
+discarded 90649 adapter-only reads.
+Adapter Clipping stats for: RI_W_08_SNP.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACACTGATATATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 45207731 reads.
+Output: 40625424 reads.
+discarded 3517515 too-short reads.
+discarded 1064792 adapter-only reads.
+Adapter Clipping stats for: RI_W_09_SNP.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACAGTCAACAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 15246995 reads.
+Output: 13772800 reads.
+discarded 1153782 too-short reads.
+discarded 320413 adapter-only reads.
+Adapter Clipping stats for: RI_W_10_SNP.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGTTTCGGAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 18275649 reads.
+Output: 16737300 reads.
+discarded 1440336 too-short reads.
+discarded 98013 adapter-only reads.
+Adapter Clipping stats for: VA_B_01_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACTGACCAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 22483259 reads.
+Output: 20740184 reads.
+discarded 1632235 too-short reads.
+discarded 110840 adapter-only reads.
+Adapter Clipping stats for: VA_B_01_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACCCGTCCCGATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 24195365 reads.
+Output: 22547007 reads.
+discarded 1562960 too-short reads.
+discarded 85398 adapter-only reads.
+Adapter Clipping stats for: VA_B_01_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACCTTGTAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 31765864 reads.
+Output: 29082855 reads.
+discarded 2559676 too-short reads.
+discarded 123333 adapter-only reads.
+Adapter Clipping stats for: VA_B_02_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACTTAGGCATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 9101658 reads.
+Output: 8436153 reads.
+discarded 581145 too-short reads.
+discarded 84360 adapter-only reads.
+Adapter Clipping stats for: VA_B_02_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACTGACCAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 16262355 reads.
+Output: 14732189 reads.
+discarded 1400343 too-short reads.
+discarded 129823 adapter-only reads.
+Adapter Clipping stats for: VA_B_02_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGGCTACATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 8278209 reads.
+Output: 7531257 reads.
+discarded 694873 too-short reads.
+discarded 52079 adapter-only reads.
+Adapter Clipping stats for: VA_B_03_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACCCGTCCCGATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 24306853 reads.
+Output: 22159106 reads.
+discarded 1985554 too-short reads.
+discarded 162193 adapter-only reads.
+Adapter Clipping stats for: VA_B_03_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACTTAGGCATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 29242844 reads.
+Output: 26775755 reads.
+discarded 2333824 too-short reads.
+discarded 133265 adapter-only reads.
+Adapter Clipping stats for: VA_B_03_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACCGTACGTAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 29562695 reads.
+Output: 27090755 reads.
+discarded 2339671 too-short reads.
+discarded 132269 adapter-only reads.
+Adapter Clipping stats for: VA_B_04_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACTGACCAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 18876693 reads.
+Output: 17189290 reads.
+discarded 1545872 too-short reads.
+discarded 141531 adapter-only reads.
+Adapter Clipping stats for: VA_B_04_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACCCGTCCCGATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 20188636 reads.
+Output: 18668783 reads.
+discarded 1306598 too-short reads.
+discarded 213255 adapter-only reads.
+Adapter Clipping stats for: VA_B_04_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACCTTGTAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 21500371 reads.
+Output: 19601233 reads.
+discarded 1315413 too-short reads.
+discarded 583725 adapter-only reads.
+Adapter Clipping stats for: VA_B_05_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACCGTACGTAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 18780128 reads.
+Output: 17333855 reads.
+discarded 1208157 too-short reads.
+discarded 238116 adapter-only reads.
+Adapter Clipping stats for: VA_B_05_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGGCTACATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 36194597 reads.
+Output: 32882349 reads.
+discarded 3063783 too-short reads.
+discarded 248465 adapter-only reads.
+Adapter Clipping stats for: VA_B_05_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACTTAGGCATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 8330368 reads.
+Output: 7560755 reads.
+discarded 679960 too-short reads.
+discarded 89653 adapter-only reads.
+Adapter Clipping stats for: VA_B_06_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACTGACCAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 21011299 reads.
+Output: 19224671 reads.
+discarded 1632808 too-short reads.
+discarded 153820 adapter-only reads.
+Adapter Clipping stats for: VA_B_06_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACCCGTCCCGATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 17911425 reads.
+Output: 16399360 reads.
+discarded 1408023 too-short reads.
+discarded 104042 adapter-only reads.
+Adapter Clipping stats for: VA_B_06_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACCTTGTAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 36959972 reads.
+Output: 33779006 reads.
+discarded 3030061 too-short reads.
+discarded 150905 adapter-only reads.
+Adapter Clipping stats for: VA_B_07_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACCGTACGTAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 18933520 reads.
+Output: 17218108 reads.
+discarded 1565231 too-short reads.
+discarded 150181 adapter-only reads.
+Adapter Clipping stats for: VA_B_07_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGGCTACATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 25027841 reads.
+Output: 22881980 reads.
+discarded 1998140 too-short reads.
+discarded 147721 adapter-only reads.
+Adapter Clipping stats for: VA_B_07_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACTTAGGCATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 16275552 reads.
+Output: 14942464 reads.
+discarded 1252480 too-short reads.
+discarded 80608 adapter-only reads.
+Adapter Clipping stats for: VA_B_08_SNP.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACCGTACGTAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 10292629 reads.
+Output: 9340966 reads.
+discarded 886751 too-short reads.
+discarded 64912 adapter-only reads.
+Adapter Clipping stats for: VA_B_09_SNP.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGGCTACATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 29743700 reads.
+Output: 27065510 reads.
+discarded 2468690 too-short reads.
+discarded 209500 adapter-only reads.
+Adapter Clipping stats for: VA_B_10_SNP.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGGCTACATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 26099905 reads.
+Output: 23856457 reads.
+discarded 2106761 too-short reads.
+discarded 136687 adapter-only reads.
+Adapter Clipping stats for: VA_W_01_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACCGATGTATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 16997837 reads.
+Output: 15360759 reads.
+discarded 1472795 too-short reads.
+discarded 164283 adapter-only reads.
+Adapter Clipping stats for: VA_W_01_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACATGTCAGAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 30716636 reads.
+Output: 27921610 reads.
+discarded 2617374 too-short reads.
+discarded 177652 adapter-only reads.
+Adapter Clipping stats for: VA_W_01_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACCAGATCATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 83546 reads.
+Output: 71742 reads.
+discarded 5740 too-short reads.
+discarded 6064 adapter-only reads.
+Adapter Clipping stats for: VA_W_02_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACATCACGATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 14212686 reads.
+Output: 12623403 reads.
+discarded 1230466 too-short reads.
+discarded 358817 adapter-only reads.
+Adapter Clipping stats for: VA_W_02_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACCGATGTATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 25777937 reads.
+Output: 23320387 reads.
+discarded 2282417 too-short reads.
+discarded 175133 adapter-only reads.
+Adapter Clipping stats for: VA_W_02_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACTAGCTTATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 16265 reads.
+Output: 14961 reads.
+discarded 1196 too-short reads.
+discarded 108 adapter-only reads.
+Adapter Clipping stats for: VA_W_03_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACATGTCAGAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 29720566 reads.
+Output: 27020595 reads.
+discarded 2599998 too-short reads.
+discarded 99973 adapter-only reads.
+Adapter Clipping stats for: VA_W_03_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACATCACGATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 3182458 reads.
+Output: 3019511 reads.
+discarded 143453 too-short reads.
+discarded 19494 adapter-only reads.
+Adapter Clipping stats for: VA_W_03_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGTGGCCTTATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 29370490 reads.
+Output: 26692572 reads.
+discarded 2546327 too-short reads.
+discarded 131591 adapter-only reads.
+Adapter Clipping stats for: VA_W_04_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACCGATGTATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 32563775 reads.
+Output: 28980976 reads.
+discarded 2887412 too-short reads.
+discarded 695387 adapter-only reads.
+Adapter Clipping stats for: VA_W_04_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACATGTCAGAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 24720825 reads.
+Output: 22997975 reads.
+discarded 1416026 too-short reads.
+discarded 306824 adapter-only reads.
+Adapter Clipping stats for: VA_W_04_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACCAGATCATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 19619501 reads.
+Output: 18509867 reads.
+discarded 1041492 too-short reads.
+discarded 68142 adapter-only reads.
+Adapter Clipping stats for: VA_W_05_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGTGGCCTTATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 17348930 reads.
+Output: 15269067 reads.
+discarded 1068120 too-short reads.
+discarded 1011743 adapter-only reads.
+Adapter Clipping stats for: VA_W_05_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACTAGCTTATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 42069202 reads.
+Output: 38559342 reads.
+discarded 3256927 too-short reads.
+discarded 252933 adapter-only reads.
+Adapter Clipping stats for: VA_W_05_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACATCACGATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 15804830 reads.
+Output: 13768739 reads.
+discarded 1170293 too-short reads.
+discarded 865798 adapter-only reads.
+Adapter Clipping stats for: VA_W_06_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACCGATGTATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 18677088 reads.
+Output: 16892916 reads.
+discarded 1574097 too-short reads.
+discarded 210075 adapter-only reads.
+Adapter Clipping stats for: VA_W_06_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACATGTCAGAATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 18979627 reads.
+Output: 17214215 reads.
+discarded 1653647 too-short reads.
+discarded 111765 adapter-only reads.
+Adapter Clipping stats for: VA_W_06_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACCAGATCATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 24248848 reads.
+Output: 21976646 reads.
+discarded 2151954 too-short reads.
+discarded 120248 adapter-only reads.
+Adapter Clipping stats for: VA_W_07_14.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGTGGCCTTATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 24159492 reads.
+Output: 21908609 reads.
+discarded 2018660 too-short reads.
+discarded 232223 adapter-only reads.
+Adapter Clipping stats for: VA_W_07_18.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACTAGCTTATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 22559156 reads.
+Output: 20327588 reads.
+discarded 1844504 too-short reads.
+discarded 387064 adapter-only reads.
+Adapter Clipping stats for: VA_W_07_22.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACATCACGATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 29944054 reads.
+Output: 27183732 reads.
+discarded 2588381 too-short reads.
+discarded 171941 adapter-only reads.
+Adapter Clipping stats for: VA_W_08_SNP.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACGTGGCCTTATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 29485064 reads.
+Output: 26827102 reads.
+discarded 2497351 too-short reads.
+discarded 160611 adapter-only reads.
+Adapter Clipping stats for: VA_W_09_SNP.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACCAGATCATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 182773821 reads.
+Output: 167484549 reads.
+discarded 14519006 too-short reads.
+discarded 770266 adapter-only reads.
+Adapter Clipping stats for: VA_W_10_SNP.fastq
+Clipping Adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACTAGCTTATCTCGTATGCCGTCTTCTGCTTG
+Min. Length: 20
+Input: 29799738 reads.
+Output: 27195541 reads.
+discarded 2424022 too-short reads.
+discarded 180175 adapter-only reads.
+Quality Trimming stats for: RI_B_01_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 7225664 reads.
+Output: 7225587 reads.
+discarded 77 (0%) too-short reads.
+Quality Trimming stats for: RI_B_01_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 23979969 reads.
+Output: 23979458 reads.
+discarded 511 (0%) too-short reads.
+Quality Trimming stats for: RI_B_01_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 24150091 reads.
+Output: 24149613 reads.
+discarded 478 (0%) too-short reads.
+Quality Trimming stats for: RI_B_02_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 5941291 reads.
+Output: 5941144 reads.
+discarded 147 (0%) too-short reads.
+Quality Trimming stats for: RI_B_02_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 10456948 reads.
+Output: 10456688 reads.
+discarded 260 (0%) too-short reads.
+Quality Trimming stats for: RI_B_02_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 13842833 reads.
+Output: 13842516 reads.
+discarded 317 (0%) too-short reads.
+Quality Trimming stats for: RI_B_03_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 17980989 reads.
+Output: 17980722 reads.
+discarded 267 (0%) too-short reads.
+Quality Trimming stats for: RI_B_03_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 579161 reads.
+Output: 579152 reads.
+discarded 9 (0%) too-short reads.
+Quality Trimming stats for: RI_B_03_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 24560830 reads.
+Output: 24560450 reads.
+discarded 380 (0%) too-short reads.
+Quality Trimming stats for: RI_B_04_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 26263710 reads.
+Output: 26263500 reads.
+discarded 210 (0%) too-short reads.
+Quality Trimming stats for: RI_B_04_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 50674430 reads.
+Output: 50673647 reads.
+discarded 783 (0%) too-short reads.
+Quality Trimming stats for: RI_B_04_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 9682129 reads.
+Output: 9681968 reads.
+discarded 161 (0%) too-short reads.
+Quality Trimming stats for: RI_B_05_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 40837985 reads.
+Output: 40837294 reads.
+discarded 691 (0%) too-short reads.
+Quality Trimming stats for: RI_B_05_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 33065505 reads.
+Output: 33064436 reads.
+discarded 1069 (0%) too-short reads.
+Quality Trimming stats for: RI_B_05_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 17861042 reads.
+Output: 17860654 reads.
+discarded 388 (0%) too-short reads.
+Quality Trimming stats for: RI_B_06_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 3877632 reads.
+Output: 3877566 reads.
+discarded 66 (0%) too-short reads.
+Quality Trimming stats for: RI_B_06_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 23688806 reads.
+Output: 23688250 reads.
+discarded 556 (0%) too-short reads.
+Quality Trimming stats for: RI_B_06_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 7408202 reads.
+Output: 7408037 reads.
+discarded 165 (0%) too-short reads.
+Quality Trimming stats for: RI_B_07_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 25470944 reads.
+Output: 25470438 reads.
+discarded 506 (0%) too-short reads.
+Quality Trimming stats for: RI_B_07_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 23672919 reads.
+Output: 23672358 reads.
+discarded 561 (0%) too-short reads.
+Quality Trimming stats for: RI_B_07_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 2416544 reads.
+Output: 2416501 reads.
+discarded 43 (0%) too-short reads.
+Quality Trimming stats for: RI_B_08_SNP.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 21745116 reads.
+Output: 21744742 reads.
+discarded 374 (0%) too-short reads.
+Quality Trimming stats for: RI_B_09_SNP.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 13546168 reads.
+Output: 13545969 reads.
+discarded 199 (0%) too-short reads.
+Quality Trimming stats for: RI_B_10_SNP.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 31572348 reads.
+Output: 31571808 reads.
+discarded 540 (0%) too-short reads.
+Quality Trimming stats for: RI_W_01_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 5982496 reads.
+Output: 5982401 reads.
+discarded 95 (0%) too-short reads.
+Quality Trimming stats for: RI_W_01_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 24714384 reads.
+Output: 24713894 reads.
+discarded 490 (0%) too-short reads.
+Quality Trimming stats for: RI_W_01_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 20596201 reads.
+Output: 20595798 reads.
+discarded 403 (0%) too-short reads.
+Quality Trimming stats for: RI_W_02_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 3784860 reads.
+Output: 3784815 reads.
+discarded 45 (0%) too-short reads.
+Quality Trimming stats for: RI_W_02_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 14524261 reads.
+Output: 14524000 reads.
+discarded 261 (0%) too-short reads.
+Quality Trimming stats for: RI_W_02_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 14036451 reads.
+Output: 14036195 reads.
+discarded 256 (0%) too-short reads.
+Quality Trimming stats for: RI_W_03_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 23249030 reads.
+Output: 23248664 reads.
+discarded 366 (0%) too-short reads.
+Quality Trimming stats for: RI_W_03_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 27275712 reads.
+Output: 27275252 reads.
+discarded 460 (0%) too-short reads.
+Quality Trimming stats for: RI_W_03_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 25996038 reads.
+Output: 25995660 reads.
+discarded 378 (0%) too-short reads.
+Quality Trimming stats for: RI_W_04_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 3268825 reads.
+Output: 3268777 reads.
+discarded 48 (0%) too-short reads.
+Quality Trimming stats for: RI_W_04_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 24084664 reads.
+Output: 24084481 reads.
+discarded 183 (0%) too-short reads.
+Quality Trimming stats for: RI_W_04_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 1047964 reads.
+Output: 1047954 reads.
+discarded 10 (0%) too-short reads.
+Quality Trimming stats for: RI_W_05_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 37178582 reads.
+Output: 37178041 reads.
+discarded 541 (0%) too-short reads.
+Quality Trimming stats for: RI_W_05_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 25839045 reads.
+Output: 25838489 reads.
+discarded 556 (0%) too-short reads.
+Quality Trimming stats for: RI_W_05_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 19541731 reads.
+Output: 19541259 reads.
+discarded 472 (0%) too-short reads.
+Quality Trimming stats for: RI_W_06_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 19025247 reads.
+Output: 19024808 reads.
+discarded 439 (0%) too-short reads.
+Quality Trimming stats for: RI_W_06_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 19303504 reads.
+Output: 19303099 reads.
+discarded 405 (0%) too-short reads.
+Quality Trimming stats for: RI_W_06_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 23755397 reads.
+Output: 23754885 reads.
+discarded 512 (0%) too-short reads.
+Quality Trimming stats for: RI_W_07_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 37350064 reads.
+Output: 37349255 reads.
+discarded 809 (0%) too-short reads.
+Quality Trimming stats for: RI_W_07_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 25650758 reads.
+Output: 25650267 reads.
+discarded 491 (0%) too-short reads.
+Quality Trimming stats for: RI_W_07_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 17293565 reads.
+Output: 17293188 reads.
+discarded 377 (0%) too-short reads.
+Quality Trimming stats for: RI_W_08_SNP.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 40625424 reads.
+Output: 40624682 reads.
+discarded 742 (0%) too-short reads.
+Quality Trimming stats for: RI_W_09_SNP.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 13772800 reads.
+Output: 13772520 reads.
+discarded 280 (0%) too-short reads.
+Quality Trimming stats for: RI_W_10_SNP.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 16737300 reads.
+Output: 16737065 reads.
+discarded 235 (0%) too-short reads.
+Quality Trimming stats for: VA_B_01_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 20740184 reads.
+Output: 20739745 reads.
+discarded 439 (0%) too-short reads.
+Quality Trimming stats for: VA_B_01_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 22547007 reads.
+Output: 22546322 reads.
+discarded 685 (0%) too-short reads.
+Quality Trimming stats for: VA_B_01_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 29082855 reads.
+Output: 29082298 reads.
+discarded 557 (0%) too-short reads.
+Quality Trimming stats for: VA_B_02_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 8436153 reads.
+Output: 8436065 reads.
+discarded 88 (0%) too-short reads.
+Quality Trimming stats for: VA_B_02_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 14732189 reads.
+Output: 14731858 reads.
+discarded 331 (0%) too-short reads.
+Quality Trimming stats for: VA_B_02_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 7531257 reads.
+Output: 7531105 reads.
+discarded 152 (0%) too-short reads.
+Quality Trimming stats for: VA_B_03_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 22159106 reads.
+Output: 22158778 reads.
+discarded 328 (0%) too-short reads.
+Quality Trimming stats for: VA_B_03_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 26775755 reads.
+Output: 26775343 reads.
+discarded 412 (0%) too-short reads.
+Quality Trimming stats for: VA_B_03_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 27090755 reads.
+Output: 27090350 reads.
+discarded 405 (0%) too-short reads.
+Quality Trimming stats for: VA_B_04_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 17189290 reads.
+Output: 17189026 reads.
+discarded 264 (0%) too-short reads.
+Quality Trimming stats for: VA_B_04_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 18668783 reads.
+Output: 18668624 reads.
+discarded 159 (0%) too-short reads.
+Quality Trimming stats for: VA_B_04_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 19601233 reads.
+Output: 19601096 reads.
+discarded 137 (0%) too-short reads.
+Quality Trimming stats for: VA_B_05_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 17333855 reads.
+Output: 17333704 reads.
+discarded 151 (0%) too-short reads.
+Quality Trimming stats for: VA_B_05_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 32882349 reads.
+Output: 32881517 reads.
+discarded 832 (0%) too-short reads.
+Quality Trimming stats for: VA_B_05_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 7560755 reads.
+Output: 7560580 reads.
+discarded 175 (0%) too-short reads.
+Quality Trimming stats for: VA_B_06_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 19224671 reads.
+Output: 19224286 reads.
+discarded 385 (0%) too-short reads.
+Quality Trimming stats for: VA_B_06_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 16399360 reads.
+Output: 16399042 reads.
+discarded 318 (0%) too-short reads.
+Quality Trimming stats for: VA_B_06_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 33779006 reads.
+Output: 33778251 reads.
+discarded 755 (0%) too-short reads.
+Quality Trimming stats for: VA_B_07_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 17218108 reads.
+Output: 17217713 reads.
+discarded 395 (0%) too-short reads.
+Quality Trimming stats for: VA_B_07_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 22881980 reads.
+Output: 22881453 reads.
+discarded 527 (0%) too-short reads.
+Quality Trimming stats for: VA_B_07_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 14942464 reads.
+Output: 14942127 reads.
+discarded 337 (0%) too-short reads.
+Quality Trimming stats for: VA_B_08_SNP.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 9340966 reads.
+Output: 9340790 reads.
+discarded 176 (0%) too-short reads.
+Quality Trimming stats for: VA_B_09_SNP.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 27065510 reads.
+Output: 27064982 reads.
+discarded 528 (0%) too-short reads.
+Quality Trimming stats for: VA_B_10_SNP.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 23856457 reads.
+Output: 23856085 reads.
+discarded 372 (0%) too-short reads.
+Quality Trimming stats for: VA_W_01_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 15360759 reads.
+Output: 15360448 reads.
+discarded 311 (0%) too-short reads.
+Quality Trimming stats for: VA_W_01_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 27921610 reads.
+Output: 27921038 reads.
+discarded 572 (0%) too-short reads.
+Quality Trimming stats for: VA_W_01_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 71742 reads.
+Output: 71741 reads.
+discarded 1 (0%) too-short reads.
+Quality Trimming stats for: VA_W_02_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 12623403 reads.
+Output: 12623122 reads.
+discarded 281 (0%) too-short reads.
+Quality Trimming stats for: VA_W_02_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 23320387 reads.
+Output: 23319879 reads.
+discarded 508 (0%) too-short reads.
+Quality Trimming stats for: VA_W_02_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 14961 reads.
+Output: 14958 reads.
+discarded 3 (0%) too-short reads.
+Quality Trimming stats for: VA_W_03_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 27020595 reads.
+Output: 27020149 reads.
+discarded 446 (0%) too-short reads.
+Quality Trimming stats for: VA_W_03_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 3019511 reads.
+Output: 3019474 reads.
+discarded 37 (0%) too-short reads.
+Quality Trimming stats for: VA_W_03_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 26692572 reads.
+Output: 26692146 reads.
+discarded 426 (0%) too-short reads.
+Quality Trimming stats for: VA_W_04_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 28980976 reads.
+Output: 28980402 reads.
+discarded 574 (0%) too-short reads.
+Quality Trimming stats for: VA_W_04_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 22997975 reads.
+Output: 22997803 reads.
+discarded 172 (0%) too-short reads.
+Quality Trimming stats for: VA_W_04_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 18509867 reads.
+Output: 18509735 reads.
+discarded 132 (0%) too-short reads.
+Quality Trimming stats for: VA_W_05_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 15269067 reads.
+Output: 15268908 reads.
+discarded 159 (0%) too-short reads.
+Quality Trimming stats for: VA_W_05_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 38559342 reads.
+Output: 38558540 reads.
+discarded 802 (0%) too-short reads.
+Quality Trimming stats for: VA_W_05_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 13768739 reads.
+Output: 13768393 reads.
+discarded 346 (0%) too-short reads.
+Quality Trimming stats for: VA_W_06_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 16892916 reads.
+Output: 16892560 reads.
+discarded 356 (0%) too-short reads.
+Quality Trimming stats for: VA_W_06_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 17214215 reads.
+Output: 17213776 reads.
+discarded 439 (0%) too-short reads.
+Quality Trimming stats for: VA_W_06_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 21976646 reads.
+Output: 21976124 reads.
+discarded 522 (0%) too-short reads.
+Quality Trimming stats for: VA_W_07_14.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 21908609 reads.
+Output: 21908106 reads.
+discarded 503 (0%) too-short reads.
+Quality Trimming stats for: VA_W_07_18.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 20327588 reads.
+Output: 20327135 reads.
+discarded 453 (0%) too-short reads.
+Quality Trimming stats for: VA_W_07_22.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 27183732 reads.
+Output: 27183139 reads.
+discarded 593 (0%) too-short reads.
+Quality Trimming stats for: VA_W_08_SNP.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 26827102 reads.
+Output: 26826529 reads.
+discarded 573 (0%) too-short reads.
+Quality Trimming stats for: VA_W_09_SNP.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 167484549 reads.
+Output: 167481650 reads.
+discarded 2899 (0%) too-short reads.
+Quality Trimming stats for: VA_W_10_SNP.fastq_clipped.fastq
+Minimum Quality Threshold: 20
+Minimum Length: 20
+Input: 27195541 reads.
+Output: 27195104 reads.
+discarded 437 (0%) too-short reads.
+Quality Filtering stats for: RI_B_01_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 7225587 reads.
+Output: 7130829 reads.
+discarded 94758 (1%) low-quality reads.
+Quality Filtering stats for: RI_B_01_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 23979458 reads.
+Output: 23644084 reads.
+discarded 335374 (1%) low-quality reads.
+Quality Filtering stats for: RI_B_01_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 24149613 reads.
+Output: 23810128 reads.
+discarded 339485 (1%) low-quality reads.
+Quality Filtering stats for: RI_B_02_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 5941144 reads.
+Output: 5847318 reads.
+discarded 93826 (1%) low-quality reads.
+Quality Filtering stats for: RI_B_02_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 10456688 reads.
+Output: 10315734 reads.
+discarded 140954 (1%) low-quality reads.
+Quality Filtering stats for: RI_B_02_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 13842516 reads.
+Output: 13654489 reads.
+discarded 188027 (1%) low-quality reads.
+Quality Filtering stats for: RI_B_03_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 17980722 reads.
+Output: 17774405 reads.
+discarded 206317 (1%) low-quality reads.
+Quality Filtering stats for: RI_B_03_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 579152 reads.
+Output: 572244 reads.
+discarded 6908 (1%) low-quality reads.
+Quality Filtering stats for: RI_B_03_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 24560450 reads.
+Output: 24275687 reads.
+discarded 284763 (1%) low-quality reads.
+Quality Filtering stats for: RI_B_04_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 26263500 reads.
+Output: 25978089 reads.
+discarded 285411 (1%) low-quality reads.
+Quality Filtering stats for: RI_B_04_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 50673647 reads.
+Output: 50064203 reads.
+discarded 609444 (1%) low-quality reads.
+Quality Filtering stats for: RI_B_04_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 9681968 reads.
+Output: 9571066 reads.
+discarded 110902 (1%) low-quality reads.
+Quality Filtering stats for: RI_B_05_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 40837294 reads.
+Output: 40347270 reads.
+discarded 490024 (1%) low-quality reads.
+Quality Filtering stats for: RI_B_05_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 33064436 reads.
+Output: 32633191 reads.
+discarded 431245 (1%) low-quality reads.
+Quality Filtering stats for: RI_B_05_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 17860654 reads.
+Output: 17601525 reads.
+discarded 259129 (1%) low-quality reads.
+Quality Filtering stats for: RI_B_06_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 3877566 reads.
+Output: 3829019 reads.
+discarded 48547 (1%) low-quality reads.
+Quality Filtering stats for: RI_B_06_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 23688250 reads.
+Output: 23299508 reads.
+discarded 388742 (1%) low-quality reads.
+Quality Filtering stats for: RI_B_06_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 7408037 reads.
+Output: 7315461 reads.
+discarded 92576 (1%) low-quality reads.
+Quality Filtering stats for: RI_B_07_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 25470438 reads.
+Output: 25086690 reads.
+discarded 383748 (1%) low-quality reads.
+Quality Filtering stats for: RI_B_07_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 23672358 reads.
+Output: 23298471 reads.
+discarded 373887 (1%) low-quality reads.
+Quality Filtering stats for: RI_B_07_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 2416501 reads.
+Output: 2378964 reads.
+discarded 37537 (1%) low-quality reads.
+Quality Filtering stats for: RI_B_08_SNP_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 21744742 reads.
+Output: 21432419 reads.
+discarded 312323 (1%) low-quality reads.
+Quality Filtering stats for: RI_B_09_SNP_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 13545969 reads.
+Output: 13367483 reads.
+discarded 178486 (1%) low-quality reads.
+Quality Filtering stats for: RI_B_10_SNP_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 31571808 reads.
+Output: 31212828 reads.
+discarded 358980 (1%) low-quality reads.
+Quality Filtering stats for: RI_W_01_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 5982401 reads.
+Output: 5908623 reads.
+discarded 73778 (1%) low-quality reads.
+Quality Filtering stats for: RI_W_01_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 24713894 reads.
+Output: 24385756 reads.
+discarded 328138 (1%) low-quality reads.
+Quality Filtering stats for: RI_W_01_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 20595798 reads.
+Output: 20303960 reads.
+discarded 291838 (1%) low-quality reads.
+Quality Filtering stats for: RI_W_02_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 3784815 reads.
+Output: 3739522 reads.
+discarded 45293 (1%) low-quality reads.
+Quality Filtering stats for: RI_W_02_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 14524000 reads.
+Output: 14316817 reads.
+discarded 207183 (1%) low-quality reads.
+Quality Filtering stats for: RI_W_02_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 14036195 reads.
+Output: 13848230 reads.
+discarded 187965 (1%) low-quality reads.
+Quality Filtering stats for: RI_W_03_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 23248664 reads.
+Output: 22975378 reads.
+discarded 273286 (1%) low-quality reads.
+Quality Filtering stats for: RI_W_03_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 27275252 reads.
+Output: 26941756 reads.
+discarded 333496 (1%) low-quality reads.
+Quality Filtering stats for: RI_W_03_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 25995660 reads.
+Output: 25700773 reads.
+discarded 294887 (1%) low-quality reads.
+Quality Filtering stats for: RI_W_04_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 3268777 reads.
+Output: 3232635 reads.
+discarded 36142 (1%) low-quality reads.
+Quality Filtering stats for: RI_W_04_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 24084481 reads.
+Output: 23824752 reads.
+discarded 259729 (1%) low-quality reads.
+Quality Filtering stats for: RI_W_04_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 1047954 reads.
+Output: 1035117 reads.
+discarded 12837 (1%) low-quality reads.
+Quality Filtering stats for: RI_W_05_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 37178041 reads.
+Output: 36741770 reads.
+discarded 436271 (1%) low-quality reads.
+Quality Filtering stats for: RI_W_05_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 25838489 reads.
+Output: 25486724 reads.
+discarded 351765 (1%) low-quality reads.
+Quality Filtering stats for: RI_W_05_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 19541259 reads.
+Output: 19284329 reads.
+discarded 256930 (1%) low-quality reads.
+Quality Filtering stats for: RI_W_06_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 19024808 reads.
+Output: 18771809 reads.
+discarded 252999 (1%) low-quality reads.
+Quality Filtering stats for: RI_W_06_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 19303099 reads.
+Output: 19008078 reads.
+discarded 295021 (1%) low-quality reads.
+Quality Filtering stats for: RI_W_06_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 23754885 reads.
+Output: 23436357 reads.
+discarded 318528 (1%) low-quality reads.
+Quality Filtering stats for: RI_W_07_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 37349255 reads.
+Output: 36776056 reads.
+discarded 573199 (1%) low-quality reads.
+Quality Filtering stats for: RI_W_07_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 25650267 reads.
+Output: 25245265 reads.
+discarded 405002 (1%) low-quality reads.
+Quality Filtering stats for: RI_W_07_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 17293188 reads.
+Output: 17024398 reads.
+discarded 268790 (1%) low-quality reads.
+Quality Filtering stats for: RI_W_08_SNP_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 40624682 reads.
+Output: 40049905 reads.
+discarded 574777 (1%) low-quality reads.
+Quality Filtering stats for: RI_W_09_SNP_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 13772520 reads.
+Output: 13578470 reads.
+discarded 194050 (1%) low-quality reads.
+Quality Filtering stats for: RI_W_10_SNP_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 16737065 reads.
+Output: 16542181 reads.
+discarded 194884 (1%) low-quality reads.
+Quality Filtering stats for: VA_B_01_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 20739745 reads.
+Output: 20435081 reads.
+discarded 304664 (1%) low-quality reads.
+Quality Filtering stats for: VA_B_01_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 22546322 reads.
+Output: 22219838 reads.
+discarded 326484 (1%) low-quality reads.
+Quality Filtering stats for: VA_B_01_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 29082298 reads.
+Output: 28662058 reads.
+discarded 420240 (1%) low-quality reads.
+Quality Filtering stats for: VA_B_02_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 8436065 reads.
+Output: 8334481 reads.
+discarded 101584 (1%) low-quality reads.
+Quality Filtering stats for: VA_B_02_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 14731858 reads.
+Output: 14527307 reads.
+discarded 204551 (1%) low-quality reads.
+Quality Filtering stats for: VA_B_02_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 7531105 reads.
+Output: 7426304 reads.
+discarded 104801 (1%) low-quality reads.
+Quality Filtering stats for: VA_B_03_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 22158778 reads.
+Output: 21896440 reads.
+discarded 262338 (1%) low-quality reads.
+Quality Filtering stats for: VA_B_03_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 26775343 reads.
+Output: 26471739 reads.
+discarded 303604 (1%) low-quality reads.
+Quality Filtering stats for: VA_B_03_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 27090350 reads.
+Output: 26786849 reads.
+discarded 303501 (1%) low-quality reads.
+Quality Filtering stats for: VA_B_04_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 17189026 reads.
+Output: 16994251 reads.
+discarded 194775 (1%) low-quality reads.
+Quality Filtering stats for: VA_B_04_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 18668624 reads.
+Output: 18461555 reads.
+discarded 207069 (1%) low-quality reads.
+Quality Filtering stats for: VA_B_04_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 19601096 reads.
+Output: 19402429 reads.
+discarded 198667 (1%) low-quality reads.
+Quality Filtering stats for: VA_B_05_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 17333704 reads.
+Output: 17154748 reads.
+discarded 178956 (1%) low-quality reads.
+Quality Filtering stats for: VA_B_05_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 32881517 reads.
+Output: 32447104 reads.
+discarded 434413 (1%) low-quality reads.
+Quality Filtering stats for: VA_B_05_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 7560580 reads.
+Output: 7462129 reads.
+discarded 98451 (1%) low-quality reads.
+Quality Filtering stats for: VA_B_06_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 19224286 reads.
+Output: 18980141 reads.
+discarded 244145 (1%) low-quality reads.
+Quality Filtering stats for: VA_B_06_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 16399042 reads.
+Output: 16140502 reads.
+discarded 258540 (1%) low-quality reads.
+Quality Filtering stats for: VA_B_06_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 33778251 reads.
+Output: 33330697 reads.
+discarded 447554 (1%) low-quality reads.
+Quality Filtering stats for: VA_B_07_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 17217713 reads.
+Output: 16960929 reads.
+discarded 256784 (1%) low-quality reads.
+Quality Filtering stats for: VA_B_07_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 22881453 reads.
+Output: 22550280 reads.
+discarded 331173 (1%) low-quality reads.
+Quality Filtering stats for: VA_B_07_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 14942127 reads.
+Output: 14716897 reads.
+discarded 225230 (1%) low-quality reads.
+Quality Filtering stats for: VA_B_08_SNP_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 9340790 reads.
+Output: 9219098 reads.
+discarded 121692 (1%) low-quality reads.
+Quality Filtering stats for: VA_B_09_SNP_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 27064982 reads.
+Output: 26674923 reads.
+discarded 390059 (1%) low-quality reads.
+Quality Filtering stats for: VA_B_10_SNP_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 23856085 reads.
+Output: 23593163 reads.
+discarded 262922 (1%) low-quality reads.
+Quality Filtering stats for: VA_W_01_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 15360448 reads.
+Output: 15149155 reads.
+discarded 211293 (1%) low-quality reads.
+Quality Filtering stats for: VA_W_01_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 27921038 reads.
+Output: 27525925 reads.
+discarded 395113 (1%) low-quality reads.
+Quality Filtering stats for: VA_W_01_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 71741 reads.
+Output: 71191 reads.
+discarded 550 (0%) low-quality reads.
+Quality Filtering stats for: VA_W_02_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 12623122 reads.
+Output: 12435469 reads.
+discarded 187653 (1%) low-quality reads.
+Quality Filtering stats for: VA_W_02_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 23319879 reads.
+Output: 23002834 reads.
+discarded 317045 (1%) low-quality reads.
+Quality Filtering stats for: VA_W_02_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 14958 reads.
+Output: 11589 reads.
+discarded 3369 (22%) low-quality reads.
+Quality Filtering stats for: VA_W_03_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 27020149 reads.
+Output: 26707226 reads.
+discarded 312923 (1%) low-quality reads.
+Quality Filtering stats for: VA_W_03_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 3019474 reads.
+Output: 2979611 reads.
+discarded 39863 (1%) low-quality reads.
+Quality Filtering stats for: VA_W_03_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 26692146 reads.
+Output: 26372673 reads.
+discarded 319473 (1%) low-quality reads.
+Quality Filtering stats for: VA_W_04_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 28980402 reads.
+Output: 28590120 reads.
+discarded 390282 (1%) low-quality reads.
+Quality Filtering stats for: VA_W_04_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 22997803 reads.
+Output: 22757965 reads.
+discarded 239838 (1%) low-quality reads.
+Quality Filtering stats for: VA_W_04_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 18509735 reads.
+Output: 18320271 reads.
+discarded 189464 (1%) low-quality reads.
+Quality Filtering stats for: VA_W_05_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 15268908 reads.
+Output: 15109339 reads.
+discarded 159569 (1%) low-quality reads.
+Quality Filtering stats for: VA_W_05_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 38558540 reads.
+Output: 38023396 reads.
+discarded 535144 (1%) low-quality reads.
+Quality Filtering stats for: VA_W_05_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 13768393 reads.
+Output: 13593568 reads.
+discarded 174825 (1%) low-quality reads.
+Quality Filtering stats for: VA_W_06_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 16892560 reads.
+Output: 16671330 reads.
+discarded 221230 (1%) low-quality reads.
+Quality Filtering stats for: VA_W_06_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 17213776 reads.
+Output: 16943887 reads.
+discarded 269889 (1%) low-quality reads.
+Quality Filtering stats for: VA_W_06_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 21976124 reads.
+Output: 21702575 reads.
+discarded 273549 (1%) low-quality reads.
+Quality Filtering stats for: VA_W_07_14_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 21908106 reads.
+Output: 21568299 reads.
+discarded 339807 (1%) low-quality reads.
+Quality Filtering stats for: VA_W_07_18_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 20327135 reads.
+Output: 20000347 reads.
+discarded 326788 (1%) low-quality reads.
+Quality Filtering stats for: VA_W_07_22_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 27183139 reads.
+Output: 26740645 reads.
+discarded 442494 (1%) low-quality reads.
+Quality Filtering stats for: VA_W_08_SNP_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 26826529 reads.
+Output: 26467706 reads.
+discarded 358823 (1%) low-quality reads.
+Quality Filtering stats for: VA_W_09_SNP_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 167481650 reads.
+Output: 165215601 reads.
+discarded 2266049 (1%) low-quality reads.
+Quality Filtering stats for: VA_W_10_SNP_clippedtrimmed_nofilter.fastq
+Quality cut-off: 20
+Minimum percentage: 90
+Input: 27195104 reads.
+Output: 26880502 reads.
+discarded 314602 (1%) low-quality reads.
