@@ -1,0 +1,600 @@
+#############################################
+STEP 2. BUILD AND ANNOTATE REFERENCE ASSEMBLY
+#############################################
+
+#STEP 2 of this pipeline is divided into three sections:
+1. Build reference assembly
+2. Separate host and symbiont contigs in reference
+3. Annotate reference
+
+
+########################
+BUILD REFERENCE ASSEMBLY
+########################
+
+#--------------------------------------- Use Trinity to create reference assembly
+
+<code>
+#!/bin/bash -l
+
+#SBATCH -o Trinity_woodshole.txt
+#SBATCH -n 32
+#SBATCH -p himem
+#SBATCH --mail-user=haich001@odu.edu
+#SBATCH --mail-type=END
+#SBATCH --job-name=Trinity_WoodsHole
+
+module load java/1.7
+module load bowtie/1.1.2
+module load samtools/1.1
+
+/cm/shared/apps/trinity/2.0.6/Trinity --seqType fq --max_memory 768G --normalize_reads --single RI_B_01_14_clipped.fastq,RI_W_01_14_clipped.fastq,VA_B_01_14_clipped.fastq,VA_W_01_14_clipped.fastq,RI_B_01_18_clipped.fastq,RI_W_01$...(all _clipped.fastq files separated by commas) --CPU 32
+</code>
+
+#note that the _clipped.fastq files are output from the Trimclipfilterstatsbatch_advbioinf.py script above. 
+
+#Assess the quality of the Trinity .fasta output using the TrinityStats.pl script that is in the download of the Trinity program:
+
+<code>
+/cm/shared/apps/trinity/2.0.6/util/TrinityStats.pl Trinity.fasta
+</code>
+
+<output>
+################################
+## Counts of transcripts, etc.
+################################
+Total trinity 'genes':	87470
+Total trinity transcripts:	97495
+Percent GC: 43.96
+
+########################################
+Stats based on ALL transcript contigs:
+########################################
+
+	Contig N10: 1278
+	Contig N20: 854
+	Contig N30: 639
+	Contig N40: 512
+	Contig N50: 424
+
+	Median contig length: 319
+	Average contig: 419.53
+	Total assembled bases: 40902087
+
+
+#####################################################
+## Stats based on ONLY LONGEST ISOFORM per 'GENE':
+#####################################################
+
+	Contig N10: 1208
+	Contig N20: 808
+	Contig N30: 610
+	Contig N40: 491
+	Contig N50: 410
+
+	Median contig length: 315
+	Average contig: 409.49
+	Total assembled bases: 35818069
+
+</output>
+
+#--------------------------------------- Blast Trinity.fasta file against Silva rRNA databases (LSU and SSU) to identify rRNA contamination in the reference transcriptome
+
+#Downloaded the following files from this website: https://www.arb-silva.de/no_cache/download/archive/release_132/Exports/
+  --> SILVA_132_LSUParc_tax_silva_trunc.fasta.gz
+  --> SILVA_132_SSUParc_tax_silva_trunc.fasta.gz
+
+#Format the LSU and SSU databases for Blast:
+
+<code>
+makeblastdb -in SILVA_132_LSUParc_tax_silva_trunc.fasta -dbtype nucl -out LSUBlastdb -hash_index
+
+makeblastdb -in SILVA_132_SSUParc_tax_silva_trunc.fasta -dbtype nucl -out SSUBlastdb -hash_index
+</code>
+
+#Submit jobs to blast the Trinity reference to the LSU and SSU Silva databases. Example for LSU database job is shown below.
+
+<code>
+#!/bin/bash -l
+
+#SBATCH -o LSUblastout_hea.txt
+#SBATCH -n 6
+#SBATCH --mail-user=haich001@odu.edu
+#SBATCH --mail-type=END
+#SBATCH --job-name=LSUblast_hea
+
+module load blast/2.6.0
+blastn -query Trinity.fasta -db /cm/shared/courses/dbarshis/barshislab/Hannah/2018-Feb_Berkeley/sandbox/Barshis/blast/LSUBlastdb -out LSU_blastn.outfmt5 \
+        -evalue 1e-4 -num_threads 6 -max_target_seqs 1 -outfmt 5
+</code>
+
+#--------------------------------------- Use the parse_blastnorblastx_advbioinf.py script to parse the blast output
+
+<code>
+module load biopython/1.64
+
+/cm/shared/courses/dbarshis/18AdvBioinf/scripts/parse_blastnortblastx_advbioinf.py LSUblastn_parsed.txt blastn LSU_blastn.outfmt5 
+
+/cm/shared/courses/dbarshis/18AdvBioinf/scripts/parse_blastnortblastx_advbioinf.py SSUblastn_parsed.txt blastn SSU_blastn.outfmt5
+</code>
+
+#--------------------------------------- Use ReParseBlastbycutoffs.py script to identify “Good hits” to the Silva rRNA databases 
+
+#Here, "good hits" are defined here as matching at least 78% of the read over at least 100 bp of the read
+
+<code>
+ReParseBlastbycutoffs.py _78per100bp.txt lengthidentity 0.78 100 *_parsed.txt
+</code>
+
+<output>
+LSUblastn_parsed.txt	Number of Good Hits: 	1273
+LSUblastn_parsed.txt	Number of unique matches:	796
+SSUblastn_parsed.txt	Number of Good Hits: 	688
+SSUblastn_parsed.txt	Number of unique matches:	412
+</output>
+
+#--------------------------------------- Remove good LSU and SSU Silva database hits from the Trinity reference assembly using the getseqsfromfasta_advbioinf.py script. Then rename the reference without rRNA to Trinity_Minus_Silva.fasta
+
+<code>
+/cm/shared/courses/dbarshis/barshislab/Hannah/2018-Feb_Berkeley/sandbox/scripts/getseqsfromfasta_advbioinf.py TrinityAssembly_LSUblastn_parsed__78per100bp_HITS.txt Trinity.fasta Trinity_Minus_LSU_out
+
+/cm/shared/courses/dbarshis/barshislab/Hannah/2018-Feb_Berkeley/sandbox/scripts/getseqsfromfasta_advbioinf.py TrinityAssembly_SSUblastn_parsed__78per100bp_HITS.txt Trinity_Minus_LSU_out Trinity_Minus_LSUSSU_out
+
+mv Trinity_Minus_LSUSSU_out Trinity_Minus_Silva.fasta
+</code>
+
+#--------------------------------------- Check the quality of trinity assembly with rRNA removed
+
+#First check with the TrinityStats.pl script:
+
+<code>
+/cm/shared/apps/trinity/2.0.6/util/TrinityStats.pl Trinity_Minus_Silva.fasta 
+</code>
+
+<output>
+################################
+## Counts of transcripts, etc.
+################################
+Total trinity 'genes':	86344
+Total trinity transcripts:	95901
+Percent GC: 43.90
+
+########################################
+Stats based on ALL transcript contigs:
+########################################
+
+	Contig N10: 1282
+	Contig N20: 858
+	Contig N30: 644
+	Contig N40: 516
+	Contig N50: 426
+
+	Median contig length: 320
+	Average contig: 421.04
+	Total assembled bases: 40378055
+
+
+#####################################################
+## Stats based on ONLY LONGEST ISOFORM per 'GENE':
+#####################################################
+
+	Contig N10: 1210
+	Contig N20: 812
+	Contig N30: 613
+	Contig N40: 493
+	Contig N50: 412
+
+	Median contig length: 315
+	Average contig: 410.54
+	Total assembled bases: 35447750
+
+</output>
+
+#Then check with the custom script looking at average sequence length and coverage and compare the Trinity assemblies both with and without the rRNA removed
+
+<code>
+/cm/shared/courses/dbarshis/18AdvBioinf/scripts/avg_cov_len_fasta_advbioinf.py Trinity_Minus_Silva.fasta 
+</code>
+
+<output>
+The total number of sequences is 95901
+The average sequence length is 421
+The total number of bases is 40378055
+The minimum sequence length is 224
+The maximum sequence length is 10795
+The N50 is 426
+Median Length = 487
+contigs < 150bp = 0
+contigs >= 500bp = 19883
+contigs >= 1000bp = 4318
+contigs >= 2000bp = 567
+</output>
+
+<code>
+/cm/shared/courses/dbarshis/18AdvBioinf/scripts/avg_cov_len_fasta_advbioinf.py Trinity.fasta
+</code>
+
+<output> 
+The total number of sequences is 97495
+The average sequence length is 419
+The total number of bases is 40902087
+The minimum sequence length is 224
+The maximum sequence length is 10795
+The N50 is 424
+Median Length = 225
+contigs < 150bp = 0
+contigs >= 500bp = 19996
+contigs >= 1000bp = 4336
+contigs >= 2000bp = 570
+</output>
+
+
+###################################
+SEPARATE CORAL AND SYMBIONT CONTIGS
+###################################
+
+#--------------------------------------- First, do some filtering of our Trinity assembled reference with rRNA removed. Keep only contigs that are greater than 500 bp
+
+<code>
+/cm/shared/courses/dbarshis/15AdvBioinf/scripts/fasta_len_filter_dict_advbioinf.py 500 Trinity_Minus_Silva.fasta 
+</code>
+
+<output>
+Number of total seqs for Trinity_Minus_Silva.fasta: 95901
+Number of seqs over 500 for Trinity_Minus_Silva.fasta: 19884
+</output>
+
+
+#--------------------------------------- Blast the resulting Trinity_Minus_Silva_over500.fasta to the clean coral (CC), dirty coral (DC), clean symbiont (CS) and dirty symbiont (DS) databases. See methods section of the manuscript for more details on how these databases were created. 
+
+<code>
+#!/bin/bash -l
+
+#SBATCH -o blastTrinitytoAnnotate.txt
+#SBATCH -n 6
+#SBATCH --mail-user=haich001@odu.edu
+#SBATCH --mail-type=END
+#SBATCH --job-name=blastTrinitytoAnnotate
+
+module load blast/2.6.0
+blastn -query Trinity_Minus_Silva_over500.fasta -db /cm/shared/courses/dbarshis/RedSea/blastdbs/New_blast_dbs/CC_all_nucldb -out TrinityMinusSilva_CC.outfmt5 \
+        -evalue 1e-4 -num_threads 6 -max_target_seqs 1 -outfmt 5
+blastn -query Trinity_Minus_Silva_over500.fasta -db /cm/shared/courses/dbarshis/RedSea/blastdbs/New_blast_dbs/DC_all_nucldb -out TrinityMinusSilva_DC.outfmt5 \
+        -evalue 1e-4 -num_threads 6 -max_target_seqs 1 -outfmt 5
+blastn -query Trinity_Minus_Silva_over500.fasta -db /cm/shared/courses/dbarshis/RedSea/blastdbs/New_blast_dbs/CS_all_nucldb -out TrinityMinusSilva_CS.outfmt5 \
+        -evalue 1e-4 -num_threads 6 -max_target_seqs 1 -outfmt 5
+blastn -query Trinity_Minus_Silva_over500.fasta -db /cm/shared/courses/dbarshis/RedSea/blastdbs/New_blast_dbs/DS_all_nucldb -out TrinityMinusSilva_DS.outfmt5 \
+        -evalue 1e-4 -num_threads 6 -max_target_seqs 1 -outfmt 5
+</code>
+
+
+#--------------------------------------- Parse the blast outputs to each of the four databases using the same parse_blastnortblastx_advbioinf.py script used above. 
+
+<code>
+/cm/shared/courses/dbarshis/18AdvBioinf/scripts/parse_blastnortblastx_advbioinf.py TrinityMinusSilva_CC_parsed.txt blastn TrinityMinusSilva_CC.outfmt5 
+
+/cm/shared/courses/dbarshis/18AdvBioinf/scripts/parse_blastnortblastx_advbioinf.py TrinityMinusSilva_CS_parsed.txt blastn TrinityMinusSilva_CS.outfmt5 
+
+/cm/shared/courses/dbarshis/18AdvBioinf/scripts/parse_blastnortblastx_advbioinf.py TrinityMinusSilva_DC_parsed.txt blastn TrinityMinusSilva_DC.outfmt5 
+
+/cm/shared/courses/dbarshis/18AdvBioinf/scripts/parse_blastnortblastx_advbioinf.py TrinityMinusSilva_DS_parsed.txt blastn TrinityMinusSilva_DS.outfmt5 
+</code>
+
+#--------------------------------------- Re-Parse the blast outputs using the ReParseBlastbycutoffs.py script with various cut-offs for the percentage of the read that has to match (first number input after 'length identity') and the length of the read it has to match (second number input after 'length identity'). These different options will be utilized in the next step. 
+
+
+<code>
+ReParseBlastbycutoffs.py 50per100bpmatch.txt lengthidentity 0.50 100 *_parsed.txt
+</code>
+<output>
+TrinityMinusSilva_CC_parsed.txt	Number of Good Hits: 	9383
+TrinityMinusSilva_CC_parsed.txt	Number of unique matches:	6563
+TrinityMinusSilva_CS_parsed.txt	Number of Good Hits: 	1779
+TrinityMinusSilva_CS_parsed.txt	Number of unique matches:	1450
+TrinityMinusSilva_DC_parsed.txt	Number of Good Hits: 	15105
+TrinityMinusSilva_DC_parsed.txt	Number of unique matches:	10723
+TrinityMinusSilva_DS_parsed.txt	Number of Good Hits: 	2520
+TrinityMinusSilva_DS_parsed.txt	Number of unique matches:	1998
+</output>
+
+<code>
+ReParseBlastbycutoffs.py 60per100bpmatch.txt lengthidentity 0.60 100 *_parsed.txt
+</code>
+<output>
+TrinityMinusSilva_CC_parsed.txt	Number of Good Hits: 	9383
+TrinityMinusSilva_CC_parsed.txt	Number of unique matches:	6563
+TrinityMinusSilva_CS_parsed.txt	Number of Good Hits: 	1779
+TrinityMinusSilva_CS_parsed.txt	Number of unique matches:	1450
+TrinityMinusSilva_DC_parsed.txt	Number of Good Hits: 	15105
+TrinityMinusSilva_DC_parsed.txt	Number of unique matches:	10723
+TrinityMinusSilva_DS_parsed.txt	Number of Good Hits: 	2520
+TrinityMinusSilva_DS_parsed.txt	Number of unique matches:	1998
+</output>
+
+<code>
+ReParseBlastbycutoffs.py 70per100bpmatch.txt lengthidentity 0.70 100 *_parsed.txt
+</code>
+<output>
+TrinityMinusSilva_CC_parsed.txt	Number of Good Hits: 	9383
+TrinityMinusSilva_CC_parsed.txt	Number of unique matches:	6563
+TrinityMinusSilva_CS_parsed.txt	Number of Good Hits: 	1779
+TrinityMinusSilva_CS_parsed.txt	Number of unique matches:	1450
+TrinityMinusSilva_DC_parsed.txt	Number of Good Hits: 	15105
+TrinityMinusSilva_DC_parsed.txt	Number of unique matches:	10723
+TrinityMinusSilva_DS_parsed.txt	Number of Good Hits: 	2520
+TrinityMinusSilva_DS_parsed.txt	Number of unique matches:	1998
+</output>
+
+<code>
+ReParseBlastbycutoffs.py 80per100bpmatch.txt lengthidentity 0.80 100 *_parsed.txt
+</code>
+<output>
+TrinityMinusSilva_CC_parsed.txt	Number of Good Hits: 	8689
+TrinityMinusSilva_CC_parsed.txt	Number of unique matches:	6160
+TrinityMinusSilva_CS_parsed.txt	Number of Good Hits: 	1748
+TrinityMinusSilva_CS_parsed.txt	Number of unique matches:	1434
+TrinityMinusSilva_DC_parsed.txt	Number of Good Hits: 	14241
+TrinityMinusSilva_DC_parsed.txt	Number of unique matches:	10165
+TrinityMinusSilva_DS_parsed.txt	Number of Good Hits: 	2344
+TrinityMinusSilva_DS_parsed.txt	Number of unique matches:	1881
+</output>
+
+<code>
+ReParseBlastbycutoffs.py 90per100bpmatch.txt lengthidentity 0.90 100 *_parsed.txt
+</code>
+<output>
+TrinityMinusSilva_CC_parsed.txt	Number of Good Hits: 	1707
+TrinityMinusSilva_CC_parsed.txt	Number of unique matches:	1340
+TrinityMinusSilva_CS_parsed.txt	Number of Good Hits: 	1533
+TrinityMinusSilva_CS_parsed.txt	Number of unique matches:	1269
+TrinityMinusSilva_DC_parsed.txt	Number of Good Hits: 	5401
+TrinityMinusSilva_DC_parsed.txt	Number of unique matches:	4226
+TrinityMinusSilva_DS_parsed.txt	Number of Good Hits: 	1580
+TrinityMinusSilva_DS_parsed.txt	Number of unique matches:	1322
+</output>
+
+<code>
+ReParseBlastbycutoffs.py 95per100bpmatch.txt lengthidentity 0.95 100 *_parsed.txt
+</code>
+<output>
+TrinityMinusSilva_CC_parsed.txt	Number of Good Hits: 	96
+TrinityMinusSilva_CC_parsed.txt	Number of unique matches:	78
+TrinityMinusSilva_CS_parsed.txt	Number of Good Hits: 	934
+TrinityMinusSilva_CS_parsed.txt	Number of unique matches:	786
+TrinityMinusSilva_DC_parsed.txt	Number of Good Hits: 	1117
+TrinityMinusSilva_DC_parsed.txt	Number of unique matches:	919
+TrinityMinusSilva_DS_parsed.txt	Number of Good Hits: 	954
+TrinityMinusSilva_DS_parsed.txt	Number of unique matches:	805
+</output>
+
+
+#--------------------------------------- Bring the re-parsed .txt files from the previous step into R, use the GenerateGoodCoralGoodSymRefs.R script to build the 'clean coral' and 'clean symbiont' references. Additional details are in that R script, but the ultimate code used to create the 'good coral' and 'good symbiont' contig lists are below. 
+
+<code>
+write.table(dirtycoral60[!(dirtycoral60$Query.Name%in%cleansym60$Query.Name), "Query.Name"], file="GoodCoralContig_60vs60_13381.txt", quote = F, row.names = F)
+
+write.table(dirtysym95[!(dirtysym60$Query.Name%in%cleancoral60$Query.Name), "Query.Name"], file="GoodSymbiontContig_60vs60_1698.txt", quote = F, row.names = F)
+</code>
+
+#--------------------------------------- Use the getseqsfromfasta_advbioinf.py script to extract the good contigs we have no determined (coral and symbiont) from the Trinity reference, with Silva rRNA hits removed, and only contigs greater than 500 bp (Trinity_Minus_Silva_over500.fasta).
+
+<code>
+getseqsfromfasta_advbioinf.py GoodSymbiontContig_60vs60_1698.txt Trinity_Minus_Silva_over500.fasta Assembly_1698ofSEQS_GoodSymbiont.fasta
+
+getseqsfromfasta_advbioinf.py GoodCoralContig_60vs60_13381.txt Trinity_Minus_Silva_over500.fasta Assembly_13381ofSEQS_GoodCoral.fasta
+</code>
+
+
+#--------------------------------------- Check the final number of contigs and get summary statistics
+
+<code>
+avg_cov_len_fasta_advbioinf.py Assembly_13381ofSEQS_GoodCoral.fasta 
+</code>
+<output>
+The total number of sequences is 13381
+The average sequence length is 890
+The total number of bases is 11919008
+The minimum sequence length is 500
+The maximum sequence length is 10795
+The N50 is 902
+Median Length = 1062
+contigs < 150bp = 0
+contigs >= 500bp = 13381
+contigs >= 1000bp = 3398
+contigs >= 2000bp = 523
+</output>
+
+<code>
+avg_cov_len_fasta_advbioinf.py Assembly_1698ofSEQS_GoodSymbiont.fasta
+</code>
+<output>
+The total number of sequences is 1698
+The average sequence length is 760
+The total number of bases is 1291462
+The minimum sequence length is 500
+The maximum sequence length is 3112
+The N50 is 745
+Median Length = 730
+contigs < 150bp = 0
+contigs >= 500bp = 1698
+contigs >= 1000bp = 262
+contigs >= 2000bp = 13
+</output>
+
+
+#--------------------------------------- Add _coral and _symbiont suffixes to the respective contig names using the addsuffixtofastaseqnames_advbioinf.py script.
+
+<code>
+addsuffixtofastaseqnames_advbioinf.py sym Assembly_1698ofSEQS_GoodSymbiont.fasta
+
+addsuffixtofastaseqnames_advbioinf.py coral Assembly_13381ofSEQS_GoodCoral.fasta
+</code>
+
+
+#--------------------------------------- Concatenate the 'good coral' and 'good symbiont' references. 
+
+<code>
+cat Assembly_13381ofSEQS_GoodCoral.fasta Assembly_1698ofSEQS_GoodSymbiont.fasta > Assembly_GoodCoralSymbiont.fasta
+</code>
+
+#--------------------------------------- Check quality of concatenated reference
+
+<code>
+avg_cov_len_fasta_advbioinf.py Assembly_GoodCoralSymbiont_suffixed.fasta
+</code>
+<output>
+The total number of sequences is 15079
+The average sequence length is 876
+The total number of bases is 13210470
+The minimum sequence length is 500
+The maximum sequence length is 10795
+The N50 is 881
+Median Length = 578
+contigs < 150bp = 0
+contigs >= 500bp = 15079
+contigs >= 1000bp = 3660
+contigs >= 2000bp = 536
+</output>
+
+##################
+ANNOTATE REFERENCE
+##################
+
+
+#--------------------------------------- Split the fasta file into smaller chunks to speed up the process of blasting using splitfasta_cluster_batchblast2dbs_blastx_SLURM.py
+
+<code>
+./splitfasta_cluster_batchblast2dbs_blastx_SLURM.py Assembly_GoodCoralSymbiont_suffixed.fasta 2500 dbparams_djb.txt 
+</code>
+
+#--------------------------------------- Submit all .sh files made in the previous step simultaneously
+<code>
+bash
+for i in ./submissionscripts/qsubsbatch_1/*.sh ; do sbatch $i; done
+for i in ./submissionscripts/qsubsbatch_2/*.sh ; do sbatch $i; done
+</code>
+
+
+#--------------------------------------- Parse the results
+
+<code>
+#!/bin/bash -l
+#SBATCH -o parse_nr_2019feb21.txt
+#SBATCH -n 1
+#SBATCH --mail-user=hannahaichelman@gmail.com
+#SBATCH --mail-type=END
+#SBATCH --job-name=parsefastx
+
+module load biopython/1.64
+
+for i in *.xml; do /cm/shared/courses/dbarshis/15AdvBioinf/scripts/parse_blastnortblastx_advbioinf.py Parsed_${i%xml}txt tblastx $i;done
+</code>
+
+
+#--------------------------------------- Merge all parsed .txt files into one
+<code>
+head -1 Parsed_Assembly_GoodCoralSymbiont_suffixed_01001-02000_blastx2nr_Sep2018.txt > all.txt
+
+tail -n +2 -q *_Sep2018.txt >> all.txt
+</code>
+
+#--------------------------------------- Check that we only have one header, and it looks like merging worked!
+
+<code>
+wc -l all.txt 
+</code>
+<output>
+462334 all.txt
+</output>
+
+<code>
+wc -l *_Sep2018.txt
+</code>
+<output>
+    28199 Parsed_Assembly_GoodCoralSymbiont_suffixed_00001-01000_blastx2nr_Sep2018.txt
+    28924 Parsed_Assembly_GoodCoralSymbiont_suffixed_01001-02000_blastx2nr_Sep2018.txt
+    33900 Parsed_Assembly_GoodCoralSymbiont_suffixed_02001-03000_blastx2nr_Sep2018.txt
+    32019 Parsed_Assembly_GoodCoralSymbiont_suffixed_03001-04000_blastx2nr_Sep2018.txt
+    29944 Parsed_Assembly_GoodCoralSymbiont_suffixed_04001-05000_blastx2nr_Sep2018.txt
+    33419 Parsed_Assembly_GoodCoralSymbiont_suffixed_05001-06000_blastx2nr_Sep2018.txt
+    38211 Parsed_Assembly_GoodCoralSymbiont_suffixed_06001-07000_blastx2nr_Sep2018.txt
+    24868 Parsed_Assembly_GoodCoralSymbiont_suffixed_07001-08000_blastx2nr_Sep2018.txt
+    34566 Parsed_Assembly_GoodCoralSymbiont_suffixed_08001-09000_blastx2nr_Sep2018.txt
+    53132 Parsed_Assembly_GoodCoralSymbiont_suffixed_09001-10000_blastx2nr_Sep2018.txt
+    26167 Parsed_Assembly_GoodCoralSymbiont_suffixed_10001-11000_blastx2nr_Sep2018.txt
+    27506 Parsed_Assembly_GoodCoralSymbiont_suffixed_11001-12000_blastx2nr_Sep2018.txt
+    32371 Parsed_Assembly_GoodCoralSymbiont_suffixed_12001-13000_blastx2nr_Sep2018.txt
+    21956 Parsed_Assembly_GoodCoralSymbiont_suffixed_13001-14000_blastx2nr_Sep2018.txt
+    16102 Parsed_Assembly_GoodCoralSymbiont_suffixed_14001-15000_blastx2nr_Sep2018.txt
+     1065 Parsed_Assembly_GoodCoralSymbiont_suffixed_15001-15079_blastx2nr_Sep2018.txt
+   462349 total
+</output>
+
+#and check that the header only shows up once 
+<code>
+grep "Query Name" all.txt 
+</code>
+<output>
+Query Name	Query Length	Subject Name	Subject Length	Alignment Length	Query Start	Query End	Subject Start	Subject End	Query Sequence	Subject Sequence	Hsp Score	Hsp Expect	Hsp Identities	Hsp Positives	Identity Percent Match	Positives Percent Match	QueryFrame	SubjectFrame	Gaps
+</output>
+
+#--------------------------------------- Rename merged file
+<code>
+mv all.txt Parsed_nr_GoodCoralSymbiont_blastx2nr_Sep2018.txt
+</code>
+
+#--------------------------------------- Repeat for the uniprot_sprot and trembl blast outputs
+#We end up with three separate blast outputs:
+
+
+--> Merged_Assembly_GoodCoralSymbiont_blastx2uniprot_sprot_Sep2018.txt  
+--> Merged_Assembly_GoodCoralSymbiont_blastx2uniprot_trembl_Sep2018.txt
+--> Parsed_nr_GoodCoralSymbiont_blastx2nr_Sep2018.txt
+
+
+#--------------------------------------- Make a directory called flatfiles and then run the total annotation inside this folder. The totalannotation_advbioinf.py script collates the blast information to all three databases and assigns an ID to a contig based on the best match to the three databases. 
+
+<code>
+mkdir flatfiles
+
+head totalannotation-slurm.sh
+
+#!/bin/bash -l
+#SBATCH -o 2019feb25_totalannotate.txt
+#SBATCH -n 1
+#SBATCH --mail-user=hannahaichelman@gmail.com
+#SBATCH --mail-type=END
+#SBATCH --job-name=annotate_table
+/cm/shared/courses/dbarshis/15AdvBioinf/scripts/totalannotation_advbioinf.py Assembly_GoodCoralSymbiont_suffixed.fasta Parsed_nr_GoodCoralSymbiont_blastx2nr_Sep2018.txt stuffsfornr.txt Merged_Assembly_GoodCoralSymbiont_blastx2uniprot_sprot_Sep2018.txt Merged_Assembly_GoodCoralSymbiont_blastx2uniprot_trembl_Sep2018.txt 1e-4 flatfiles Assembly_GoodCoralSymbiont_suffixed_totalannotated.txt
+</code>
+
+#--------------------------------------- Take a look at the output txt file from totalannotation_advbioinf.py
+
+<code>
+nano 2019feb25_totalannotate.txt 
+</code>
+<output>
+Read in fasta of 15079 sequences: ...
+Read in nr blast...
+Number of good nr matches: 13829
+Number not matched in nr: 1250
+Searching for badwords...
+Number of nr hits with only a bad word hit: 165
+Number of nr hits with a good word hit: 13664
+Read in swissprot blast ...
+Number of good swissprot matches: 9624
+Read in TrEMBL blast ...
+Number of repeat matches from TrEMBL: 9620
+Number of additional good matches from TrEMBL: 4009
+flatfilesneeded: 8505
+downloading flat files ...
+extracting relevant info from flat files ...
+don't worry this takes awhile ...
+Hits not matched in sprot: 1446
+compiling extracted information ...
+</output>
+
+
+NOTE: In going through later steps of this pipeline, I ran across a few contigs that were labeled as both coral and symbiont. To deal with these, I manually blasted those contigs and evaluated on a case-by-case basis based on the blast output. 
+
+
