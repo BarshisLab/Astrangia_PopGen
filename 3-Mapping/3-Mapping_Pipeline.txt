@@ -1,0 +1,35 @@
+###############
+STEP 3. MAPPING
+###############
+
+#--------------------------------------- Concatenate the fastq files by genotype. 
+#Three fragments of each genotype were distributed across three temperature treatments during the experiment, but for the purpose of calling SNPs we combined all reads for one genotype. See methods for more details.
+
+#--------------------------------------- Map the .fastq files merged by individual to the Trinity-assembled reference described in step #2 of this pipeline.
+
+<code>
+#!/bin/bash -l
+
+#SBATCH -o bowtie2_ForExp_Merged_MyTrinityRef.txt
+#SBATCH -n 1
+#SBATCH --mail-user=haich001@odu.edu
+#SBATCH --mail-type=END
+#SBATCH --job-name=bowtie2_ForExp_Merged_MyTrinityRef
+
+module load samtools/1.1
+module load bowtie2/2.2.4
+for i in *.fastq; do bowtie2 --rg-id ${i%.fastq} \
+--rg SM:${i%.fastq} \
+--very-sensitive -x /cm/shared/courses/dbarshis/barshislab/Hannah/2018-Feb_Berkeley/sandbox/Barshis/trinity_out_dir/WH_ClippedRef -U $i \
+> ${i%.fastq}_clippedref.sam --no-unal -k 5; done
+
+for i in *.sam; do `samtools view -bS $i > ${i%.sam}_UNSORTED.bam`; done
+
+for i in *UNSORTED.bam; do samtools sort -O bam -T ${i%_UNSORTED.bam} $i > ${i%_UNSORTED.bam}.bam
+samtools index ${i%_UNSORTED.bam}.bam
+done
+</code>
+
+
+#--------------------------------------- The output of this shell script are .sam and .bam files. The .bam files will be used in the program Freebayes to call Single Nucleotide Polymorphisms (SNPs). This is described in step 4. 
+
