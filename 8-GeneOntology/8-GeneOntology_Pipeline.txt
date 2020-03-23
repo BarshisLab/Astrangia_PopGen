@@ -1,0 +1,9 @@
+##########################
+8.GENE ONTOLOGY ENRICHMENT
+##########################
+
+
+#To do the Gene Ontology (GO) enrichment analyses, we used the GO_MWU.R originally written by Mikhail Matz at UT Austin (https://github.com/z0on/GO_MWU)
+#The input files need to be include all of the genes in the transcriptome (with the 0 and 1 designation for neutral/no SNP or outlier SNP)
+#The code we used to accomplish this is found at the top of the GO_MWU_forgithub.R script.
+#The GO_MWU_forgithub.R also contains the script used to conduct and plot the gene ontology enrichment analyses for the 2-population and 4-population host files. 
