@@ -1,0 +1,238 @@
+#################
+5. OUTLIER SNP ID
+#################
+
+#--------------------------------------- Download and install necessary programs
+
+##PGDSpider - used for file format conversion
+
+#Downloaded and un-zipped the download from this website: http://www.cmpg.unibe.ch/software/PGDSpider/
+#To open the program, navigate to the downloaded directory on your local machine using Terminal, and run the following command:
+
+<code>
+./PGDSpider2.sh
+</code>
+
+#Or can also open the program like this:
+<code>
+17.08.08 16:14/PGDSpider_2.1.1.2$ java -jar PGDSpider2.jar
+</code>
+
+
+##Baypass - used to identify high outlier and neutral SNPs
+
+#Downloaded baypass_2.1 from this website: http://www1.montpellier.inra.fr/CBGP/software/baypass/download.html
+#Navigate to the /sources/ folder from the download and compile. 
+#Make sure you have gcc installed in order to compile before running the command below.
+
+<code>
+make clean all FC=gfortran
+</code>
+
+
+#--------------------------------------- Convert genepop file format (from step 4) to Baypass format by way of bayenv format
+
+#Use PGDSpider2 to convert genepop to bayenv format
+#Make sure the genepop files are saved as .txt files, otherwise PGDSpider won't recognize them
+
+
+#Then convert bayenv to baypass formats with convert_bayenv_to_baypass.py script
+<code>
+python ../convert_bayenv_to_baypass.py finalcoralsubset_1506_2POP_bayenv.txt 
+</code>
+<output>
+Converted 1506 loci from BayEnv to BayPass format. Share and enjoy.
+</output>
+
+<code>
+python ../convert_bayenv_to_baypass.py finalcoralsubset_1562_4POP_bayenv.txt
+</code>
+<output>
+Converted 1562 loci from BayEnv to BayPass format. Share and enjoy.
+</output>
+
+<code>
+python ../convert_bayenv_to_baypass.py finalsymsubset_68_bayenv.txt
+</code>
+<output>
+Converted 68 loci from BayEnv to BayPass format. Share and enjoy.
+</output>
+ 
+#--------------------------------------- Run BayPass
+
+#Run the g_baypass script from within the /sources/ folder from the baypass download
+
+#Run separately for the 4-population host, 2-population host, and symbiont _baypass.txt files. -npop designates the number of putative populations.
+
+<code>
+./g_baypass -npop 4 -gfile /Users/hannahaichelman/Documents/ODU_MS/MolecularWork/RNASeq_Analysis/SNPs/Subset_Analysis_2POP_4POP/finalcoralsubset_1562_4POP_baypass.txt -outprefix finalcoralsubset_1562_4POP
+
+./g_baypass -npop 2 -gfile /Users/hannahaichelman/Documents/ODU_MS/MolecularWork/RNASeq_Analysis/SNPs/Subset_Analysis_2POP_4POP/finalcoralsubset_1506_2POP_baypass.txt -outprefix finalcoralsubset_1506_2POP
+
+./g_baypass -npop 2 -gfile /Users/hannahaichelman/Documents/ODU_MS/MolecularWork/RNASeq_Analysis/SNPs/SymOnlyAnalyses/finalsymsubset_68_baypass.txt -outprefix finalsymsubset_68
+</code>
+
+#The output files from this first run of the g_baypass script are then used in the BaypassScript.R script. This generates a simulated pseudo-observed data set (POD; using simulate.baypass() function). Once you run through the BaypassScript.R file through to the simulate.baypass() function, then you take the output files from that simulated dataset and run the below baypass commands in the terminal again.
+#As above, run separately for the 4-population host, 2-population host, and symbiont files.
+
+<code>
+./g_baypass -npop 4 -gfile ./10kPOD_finalcoralsubset_4POP/G.finalcoralsubset_4POP_POD10kAstrangia -outprefix 10kPOD_finalcoralsubset_4POP
+
+./g_baypass -npop 2 -gfile ./10kPOD_finalcoralsubset_2POP/G.finalcoralsubset_2POP_POD10kAstrangia -outprefix 10kPOD_finalcoralsubset_2POP
+
+./g_baypass -npop 2 -gfile ./10kPOD_finalsymsubset/G.finalsymsubset_POD10kAstrangia -outprefix 10kPOD_finalsymsubset
+</code>
+
+
+#The files produced from the second run of the g_baypass script are read back into the BaypassScript.R script. The end of the .R script is used to produce a list of high outlier SNPs, neutral SNPs, and low outlier SNPs. These lists of SNPs are then used to subset the 1 SNP per contig vcf files to get putatively neutral and putatively outlier SNPs for downstream analyses. 
+
+#--------------------------------------- Subset VCF files by neutral and high outlier SNPs
+#Use vcftools to subset similar to the method used in step 4 of the pipeline. 
+
+#2-population host high outliers
+<code>
+/cm/shared/apps/vcftools/0.1.12b/bin/vcftools --vcf finalcoralsubset_234_2POP.filtered1SNPper.vcf --positions 2Pop_subset_HighOutliers.txt --recode --recode-INFO-all --out finalcoralsubset_12_2POP_highoutliers
+</code>
+<output>
+VCFtools - v0.1.12b
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf finalcoralsubset_234_2POP.filtered1SNPper.vcf
+	--recode-INFO-all
+	--out finalcoralsubset_12_2POP_highoutliers
+	--positions 2Pop_subset_HighOutliers.txt
+	--recode
+
+After filtering, kept 40 out of 40 Individuals
+Outputting VCF file...
+After filtering, kept 12 out of a possible 234 Sites
+Run Time = 1.00 seconds
+</output>
+
+#2-population host neutral
+<code>
+/cm/shared/apps/vcftools/0.1.12b/bin/vcftools --vcf finalcoralsubset_234_2POP.filtered1SNPper.vcf --positions 2Pop_subset_AllNeutral.txt --recode --recode-INFO-all --out finalcoralsubset_213_2POP_neutral
+</code>
+<output>
+VCFtools - v0.1.12b
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf finalcoralsubset_234_2POP.filtered1SNPper.vcf
+	--recode-INFO-all
+	--out finalcoralsubset_213_2POP_neutral
+	--positions 2Pop_subset_AllNeutral.txt
+	--recode
+
+After filtering, kept 40 out of 40 Individuals
+Outputting VCF file...
+After filtering, kept 213 out of a possible 234 Sites
+Run Time = 1.00 seconds
+</output>
+
+#4-population host neutral
+<code>
+/cm/shared/apps/vcftools/0.1.12b/bin/vcftools --vcf finalcoralsubset_242_4POP.filtered1SNPper.vcf --positions 4Pop_finalcoralsubset_AllNeutral.txt --recode --recode-INFO-all --out finalcoralsubset_226_4POP_neutral
+</code>
+<output>
+VCFtools - v0.1.12b
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf finalcoralsubset_242_4POP.filtered1SNPper.vcf
+	--recode-INFO-all
+	--out finalcoralsubset_226_4POP_neutral
+	--positions 4Pop_finalcoralsubset_AllNeutral.txt
+	--recode
+
+After filtering, kept 40 out of 40 Individuals
+Outputting VCF file...
+After filtering, kept 226 out of a possible 242 Sites
+Run Time = 1.00 seconds
+</output>
+
+#4-population high outliers
+<code>
+/cm/shared/apps/vcftools/0.1.12b/bin/vcftools --vcf finalcoralsubset_242_4POP.filtered1SNPper.vcf --positions 4Pop_finalcoralsubset_HighOutliers.txt --recode --recode-INFO-all --out finalcoralsubset_9_4POP_highoutliers
+</code>
+<output>
+VCFtools - v0.1.12b
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf finalcoralsubset_242_4POP.filtered1SNPper.vcf
+	--recode-INFO-all
+	--out finalcoralsubset_9_4POP_highoutliers
+	--positions 4Pop_finalcoralsubset_HighOutliers.txt
+	--recode
+
+After filtering, kept 40 out of 40 Individuals
+Outputting VCF file...
+After filtering, kept 9 out of a possible 242 Sites
+Run Time = 2.00 seconds
+</output>
+
+#Symbiont high outliers
+#Note that there are no high outlier sites for symbiont SNPs after filtering for 1 SNP per contig
+<code>
+/cm/shared/apps/vcftools/0.1.12b/bin/vcftools --vcf finalsymsubset_19.filtered1SNPper.vcf --positions finalsymsubset_HighOutliers.txt 
+</code>
+<output>
+VCFtools - v0.1.12b
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf finalsymsubset_19.filtered1SNPper.vcf
+	--positions finalsymsubset_HighOutliers.txt
+
+After filtering, kept 20 out of 20 Individuals
+After filtering, kept 0 out of a possible 19 Sites
+No data left for analysis!
+Run Time = 1.00 seconds
+</output>
+
+#Symbiont neutral sites
+<code>
+/cm/shared/apps/vcftools/0.1.12b/bin/vcftools --vcf finalsymsubset_19.filtered1SNPper.vcf --positions finalsymsubset_AllNeutral.txt --recode --recode-INFO-all --out finalsymsubset_19_neutral
+</code>
+<output>
+VCFtools - v0.1.12b
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf finalsymsubset_19.filtered1SNPper.vcf
+	--recode-INFO-all
+	--out finalsymsubset_19_neutral
+	--positions finalsymsubset_AllNeutral.txt
+	--recode
+
+After filtering, kept 20 out of 20 Individuals
+Outputting VCF file...
+After filtering, kept 19 out of a possible 19 Sites
+Run Time = 2.00 seconds
+</output>
+
+#--------------------------------------- Convert all subsetted vcf files to genepop format using the vcftogenepop_advbioinf.py script
+
+#Each conversion needs a population file, provided in the GitHub folder for this section
+
+#2-population and 4-population host files
+<code>
+/cm/shared/courses/dbarshis/18AdvBioinf/scripts/vcftogenepop_advbioinf.py finalcoralsubset_234_2POP.filtered1SNPper.vcf merged_popfile.txt 
+
+/cm/shared/courses/dbarshis/18AdvBioinf/scripts/vcftogenepop_advbioinf.py finalcoralsubset_242_4POP.filtered1SNPper.vcf merged_popfile_4pop.txt 
+
+/cm/shared/courses/dbarshis/18AdvBioinf/scripts/vcftogenepop_advbioinf.py finalcoralsubset_213_2POP_neutral.recode.vcf merged_popfile.txt 
+
+/cm/shared/courses/dbarshis/18AdvBioinf/scripts/vcftogenepop_advbioinf.py finalcoralsubset_226_4POP_neutral.recode.vcf merged_popfile_4pop.txt 
+
+/cm/shared/courses/dbarshis/18AdvBioinf/scripts/vcftogenepop_advbioinf.py finalcoralsubset_12_2POP_highoutliers.recode.vcf merged_popfile.txt 
+
+/cm/shared/courses/dbarshis/18AdvBioinf/scripts/vcftogenepop_advbioinf.py finalcoralsubset_9_4POP_highoutliers.recode.vcf merged_popfile_4pop.txt 
+</code>
+
+#Symbiont file
+<code>
+/cm/shared/courses/dbarshis/18AdvBioinf/scripts/vcftogenepop_advbioinf.py finalsymsubset_19_neutral.recode.vcf merged_popfile_2pop_brown.txt
+</code>
