@@ -10,4 +10,4 @@ Each folder also contains a scripts folder, with all of the scripts referenced i
 
 
 =====Contact Info=====
-*Please email hannahaichelman@gmail.com with any questions regarding these analyses
+Please email hannahaichelman@gmail.com with any questions regarding these analyses
