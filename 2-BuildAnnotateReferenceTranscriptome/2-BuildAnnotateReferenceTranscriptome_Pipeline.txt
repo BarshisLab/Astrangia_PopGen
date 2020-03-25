@@ -460,6 +460,7 @@ contigs >= 2000bp = 536
 ANNOTATE REFERENCE
 ##################
 
+#This step annotates the Trinity-assembled reference by BLAST sequence homology searches against GenBank's nr protein database and UniProt's Swiss-Prot and TrEMBL databases to create a consensus annotation using an e-value cutoff of 1e-4 using a custom annotation script (totalannotation_advbioinf.py).
 
 #--------------------------------------- Split the fasta file into smaller chunks to speed up the process of blasting using splitfasta_cluster_batchblast2dbs_blastx_SLURM.py
 
