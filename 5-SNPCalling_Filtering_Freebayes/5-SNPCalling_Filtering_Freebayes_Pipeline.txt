@@ -1,0 +1,301 @@
+#################################
+STEP 5. SNP CALLING AND FILTERING
+#################################
+
+
+#--------------------------------------- Call SNPs with Freebayes
+#More info on the freebayes program can be found on the associated GitHub page: https://github.com/ekg/freebayes
+
+<code>
+nano freebayes_hea.sh 
+
+#!/bin/bash -l
+
+#SBATCH -o freebayes_hea.txt
+#SBATCH -n 1
+#SBATCH --mail-user=haich001@odu.edu
+#SBATCH --mail-type=END
+#SBATCH --job-name=freebayes_hea
+
+module load dDocent/2.24
+freebayes --genotype-qualities -f /cm/shared/courses/dbarshis/barshislab/Hannah/2018-Feb_Berkeley/sandbox/Barshis/ReferenceAssemblies/HEA_AstrangiaAssembly_Trinity.fasta *.bam > mergedfastq_HEAAstrangiaAssembly.vcf
+</code>
+
+#To determine number of SNPs in the original, un-filtered vcf file:
+<code>
+/cm/shared/apps/vcftools/0.1.12b/bin/vcftools --vcf mergedfastq_HEAAstrangiaAssembly.vcf
+</code>
+
+<output>
+VCFtools - v0.1.12b
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf mergedfastq_HEAAstrangiaAssembly.vcf
+
+After filtering, kept 40 out of 40 Individuals
+After filtering, kept 1214003 out of a possible 1214003 Sites
+Run Time = 15.00 seconds
+</output>
+
+#--------------------------------------- Subset SNPs by those occurring on host contigs using vcfsubsetter_advbioinf.py script. Separate files for host and symbiont will be used for downstream analyses.
+
+<code>
+/cm/shared/courses/dbarshis/18AdvBioinf/scripts/vcfsubsetter_advbioinf.py GoodCoralGenelistForVCFSubsetter.txt mergedfastq_HEAAstrangiaAssembly.vcf 
+</code>
+
+#Now look again at number of SNPs
+<code>
+/cm/shared/apps/vcftools/0.1.12b/bin/vcftools --vcf mergedfastq_HEAAstrangiaAssembly_coralsubset.vcf 
+</code>
+<output>
+VCFtools - v0.1.12b
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf mergedfastq_HEAAstrangiaAssembly_subset.vcf
+
+After filtering, kept 40 out of 40 Individuals
+After filtering, kept 432676 out of a possible 432676 Sites
+Run Time = 4.00 seconds
+</output>
+
+#--------------------------------------- Subset SNPs by those occurring on symbiont contigs using vcfsubsetter_advbioinf.py script. 
+
+<code>
+/cm/shared/courses/dbarshis/18AdvBioinf/scripts/vcfsubsetter_advbioinf.py GoodSymGenelistForVCFSubsetter.txt mergedfastq_HEAAstrangiaAssembly.vcf
+</code>
+
+#Look at number of SNPs
+<code>
+/cm/shared/apps/vcftools/0.1.12b/bin/vcftools --vcf mergedfastq_HEAAstrangiaAssembly_symsubset.vcf
+</code>
+<output>
+VCFtools - v0.1.12b
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf mergedfastq_HEAAstrangiaAssembly_symsubset.vcf
+
+After filtering, kept 40 out of 40 Individuals
+After filtering, kept 16417 out of a possible 16417 Sites
+Run Time = 2.00 seconds
+</output?
+
+#--------------------------------------- Robustly filter VCF file to include only high quality SNPs
+
+#Get scripts from and load dDocent/2.24 
+<code>
+curl -L -O https://github.com/jpuritz/dDocent/raw/master/scripts/filter_missing_ind.sh
+
+chmod +x filter_missing_ind.sh                              
+
+module load dDocent/2.24
+</code>
+
+###First, for HOST SNPs
+
+#First round of SNP filtering
+<code>
+/cm/shared/apps/vcftools/0.1.12b/bin/vcftools --vcf mergedfastq_HEAAstrangiaAssembly_coralsubset.vcf --max-missing 0.5 --mac 3 --minQ 30 --minDP 5 --max-alleles 2 --min-alleles 2 --remove-indels --recode --recode-INFO-all --out coral_filter1_5974
+</code>
+
+#Remove individuals with lots of missing data
+<code> 
+./filter_missing_ind.sh coral_filter1_5974.recode.vcf coral_filter2_missind                          
+</code>
+
+#Look at the names of the individuals with lots of missing data that were removed
+<code>
+cat lowDP.indv
+</code>
+
+<output> 
+INDV
+RI_B_08_SNP_clipped
+VA_B_08_SNP_clipped
+RI_B_09_SNP_clipped
+RI_W_10_SNP_clipped
+RI_W_09_SNP_clipped
+</output>
+
+#Another round of SNP filtering
+<code>
+/cm/shared/apps/vcftools/0.1.12b/bin/vcftools --vcf coral_filter2_missind.recode.vcf --max-missing 0.75 --maf 0.05 --min-meanDP 10 --recode --recode-INFO-all --out coral_filter3_1819
+</code>
+
+#Convert variant calls to SNPs
+<code>
+vcfallelicprimitives coral_filter3_1819.recode.vcf --keep-info --keep-geno > coral_filter3_1819.prim.vcf
+</code>
+
+#Apply a Hardy-Weinberg Equilibrium filter coding the data as four populations (Virginia-Brown, Virginia-White, Rhode Island-Brown, and Rhode Island-White; Host)
+<code>
+./filter_hwe_by_pop.pl -v coral_filter3_1819.prim.vcf -p merged_popfile_4pop_missind.txt -o coral_1819.HWE -h 0.01
+</code>
+
+<output>
+Processing population: RI_B (8 inds)
+Processing population: RI_W (8 inds)
+Processing population: VA_B (9 inds)
+Processing population: VA_W (10 inds)
+Outputting results of HWE test for filtered loci to 'filtered.hwe'
+Kept 1808 of a possible 1819 loci (filtered 11 loci)
+</output>
+
+#And re-name based on number of loci kept
+<code>
+mv coral_1819.HWE.recode.vcf coral_1808.HWE.recode.vcf
+</code>
+
+#Remove SNPs from contigs that are labeled as both coral and symbiont in the reference transcriptome using the --not-chr flag from vcftools
+<code>
+/cm/shared/apps/vcftools/0.1.12b/bin/vcftools --vcf coral_1808.HWE.recode.vcf --not-chr 'TR26801|c0_g2_i1' --not-chr 'TR31122|c0_g1_i1' --not-chr 'TR32974|c0_g1_i1' --not-chr 'TR41328|c0_g1_i1' --not-chr 'TR50118|c0_g1_i1' --not-chr 'TR50355|c0_g1_i1' --not-chr 'TR60158|c0_g1_i1' --not-chr 'TR6472|c0_g1_i1' --recode --recode-INFO-all --out coral_1808.HWE.final.recode.vcf
+</code>
+
+#Remove putative clone (from RI-B population) from the host
+<code>
+/cm/shared/apps/vcftools/0.1.12b/bin/vcftools --vcf ../coral_1808.HWE.final.recode.vcf --remove clone_to_remove.indv --recode --recode-INFO-all --out coral_1808.HWE.final.cloneremoved
+</code>
+
+<output>
+VCFtools - v0.1.12b
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf ../coral_1808.HWE.final.recode.vcf
+	--exclude clone_to_remove.indv
+	--recode-INFO-all
+	--out coral_1808.HWE.final.cloneremoved
+	--recode
+
+Excluding individuals in 'exclude' list
+After filtering, kept 34 out of 35 Individuals
+Outputting VCF file...
+After filtering, kept 1808 out of a possible 1808 Sites
+Run Time = 3.00 seconds
+</output>
+
+
+###Second, for SYMBIONT SNPs
+#First round of SNP filtering
+<code>
+/cm/shared/apps/vcftools/0.1.12b/bin/vcftools --vcf symsubset_brownindivids.recode.vcf --max-missing 0.5 --mac 3 --minQ 30 --minDP 5 --max-alleles 2 --min-alleles 2 --remove-indels --recode --recode-INFO-all --out sym_filter1_342
+</code>
+
+#Remove individuals with lots of missing data
+<code>
+./filter_missing_ind.sh sym_filter1_342.recode.vcf sym_filter2_missind
+</code>
+
+#Look at the names of the individuals with lots of missing data that were removed
+<code>
+cat lowDP.indv 
+</code>
+
+<output>
+INDV
+VA_B_08_SNP_clipped
+VA_B_10_SNP_clipped
+</output>
+
+#Another round of SNP filtering
+<code>
+/cm/shared/apps/vcftools/0.1.12b/bin/vcftools --vcf sym_filter2_missind.recode.vcf --maf 0.05 --min-meanDP 10 --max-missing 0.75 --recode --recode-INFO-all --out sym_filter3_72
+</code>
+
+#Convert variant calls to SNPs
+<code>
+vcfallelicprimitives sym_filter3_72.recode.vcf --keep-info --keep-geno > sym_filter3_72.prim.vcf
+</code>
+
+#Apply a Hardy-Weinberg Equilibrium filter coding the data as two populations (Virginia-Brown and Rhode Island-Brown)
+<code>
+./filter_hwe_by_pop.pl -v sym_filter3_72.prim.vcf -p merged_popfile_2pop_brown_missind.txt -o sym_72.HWE -h 0.01
+</code>
+
+<output>
+Processing population: RI_B (10 inds)
+Processing population: VA_B (8 inds)
+Outputting results of HWE test for filtered loci to 'filtered.hwe'
+Kept 72 of a possible 72 loci (filtered 0 loci)
+</output>
+
+#Remove SNPs from contigs that are labeled as both coral and symbiont in the reference transcriptome using the --not-chr flag from vcftools
+/cm/shared/apps/vcftools/0.1.12b/bin/vcftools --vcf sym_72.HWE.recode.vcf --not-chr 'TR13309|c0_g1_i1' --not-chr 'TR13309|c0_g1_i2' --not-chr 'TR13309|c0_g1_i3' --not-chr 'TR13309|c0_g1_i4' --not-chr 'TR19140|c0_g2_i1' --not-chr 'TR19353|c0_g1_i1' --not-chr 'TR19427|c0_g1_i1' --not-chr 'TR19427|c0_g1_i3' --not-chr 'TR24711|c1_g1_i1' --not-chr 'TR24787|c0_g5_i1' --not-chr 'TR25041|c0_g1_i1' --not-chr 'TR25041|c0_g1_i3' --not-chr 'TR26801|c0_g2_i1' --not-chr 'TR28653|c0_g2_i1' --not-chr 'TR28653|c0_g2_i2' --not-chr 'TR29974|c0_g1_i12' --not-chr 'TR29974|c0_g1_i1' --not-chr 'TR29974|c0_g1_i3' --not-chr 'TR29974|c0_g1_i8' --not-chr 'TR3445|c0_g1_i2' --not-chr 'TR35211|c2_g1_i1' --not-chr 'TR42333|c0_g1_i1' --not-chr 'TR45252|c0_g1_i1' --not-chr 'TR46343|c0_g1_i1' --not-chr 'TR47096|c0_g1_i1' --not-chr 'TR47121|c0_g2_i1' --not-chr 'TR47308|c0_g1_i1' --not-chr 'TR47946|c1_g1_i5' --not-chr 'TR47983|c0_g4_i1' --not-chr 'TR50118|c0_g1_i1' --not-chr 'TR50217|c0_g2_i1' --not-chr 'TR53939|c0_g1_i1' --not-chr 'TR56194|c0_g2_i1' --not-chr 'TR58010|c0_g2_i3' --not-chr 'TR59703|c0_g1_i1' --not-chr 'TR59703|c0_g1_i3' --not-chr 'TR59704|c0_g3_i1' --not-chr 'TR60640|c0_g3_i1' --recode --recode-INFO-all --out sym_59.HWE.final.recode.vcf
+</code>
+
+
+#--------------------------------------- Convert vcf files to genepop format
+#Genepop file format will be used in the program Genodive
+
+pwd
+
+/cm/shared/courses/dbarshis/barshislab/Hannah/2018-Feb_Berkeley/sandbox/Barshis/SNPs/final_subset_files/revision_final_subset_files
+
+<code>
+../vcftogenepop_advbioinf.py coral_1808.HWE.final.cloneremoved.recode.vcf ../merged_popfile_4pop.txt 
+</code>
+
+<code>
+./vcftogenepop_advbioinf.py sym_59.HWE.final.recode.vcf merged_popfile_2pop_brown.txt 
+</code>
+
+#--------------------------------------- Subset files to do analyses within Virginia and Rhode Island to look for consistent outliers (possible signatures of selection based on symbiosis)
+
+pwd
+
+/cm/shared/courses/dbarshis/barshislab/Hannah/2018-Feb_Berkeley/sandbox/Barshis/SNPs/final_subset_files/revision_final_subset_files/VA_RI_analysis
+
+#VA Individual vcf file
+<code>
+/cm/shared/apps/vcftools/0.1.12b/bin/vcftools --vcf ../clones_removed_outliers/coral_1808.HWE.final.cloneremoved.recode.vcf --remove RI_Individs.txt --recode --recode-INFO-all --out VA_1808.HWE.final.cloneremoved
+</code>
+
+<output>
+VCFtools - v0.1.12b
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf ../clones_removed_outliers/coral_1808.HWE.final.cloneremoved.recode.vcf
+	--exclude RI_Individs.txt
+	--recode-INFO-all
+	--out VA_1808.HWE.final.cloneremoved
+	--recode
+
+Excluding individuals in 'exclude' list
+After filtering, kept 19 out of 34 Individuals
+Outputting VCF file...
+After filtering, kept 1808 out of a possible 1808 Sites
+Run Time = 1.00 seconds
+</output>
+
+#RI Individual vcf file
+<code>
+/cm/shared/apps/vcftools/0.1.12b/bin/vcftools --vcf ../clones_removed_outliers/coral_1808.HWE.final.cloneremoved.recode.vcf --remove VA_Individs.txt --recode --recode-INFO-all --out RI_1808.HWE.final.cloneremoved
+</code>
+
+<output>
+VCFtools - v0.1.12b
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf ../clones_removed_outliers/coral_1808.HWE.final.cloneremoved.recode.vcf
+	--exclude VA_Individs.txt
+	--recode-INFO-all
+	--out RI_1808.HWE.final.cloneremoved
+	--recode
+
+Excluding individuals in 'exclude' list
+After filtering, kept 15 out of 34 Individuals
+Outputting VCF file...
+After filtering, kept 1808 out of a possible 1808 Sites
+Run Time = 1.00 seconds
+</output>
+
+#Convert to genepop format
+<code>
+../vcftogenepop_advbioinf.py RI_1808.HWE.final.cloneremoved.recode.vcf merged_popfile_RI.txt 
+
+../vcftogenepop_advbioinf.py VA_1808.HWE.final.cloneremoved.recode.vcf merged_popfile_VA.txt 
+</code>
