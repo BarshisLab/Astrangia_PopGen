@@ -1,0 +1,193 @@
+#################
+6. OUTLIER SNP ID
+#################
+
+#--------------------------------------- Download and install necessary programs
+
+##PGDSpider - used for file format conversion
+
+#Downloaded and un-zipped the download from this website: http://www.cmpg.unibe.ch/software/PGDSpider/
+#To open the program, navigate to the downloaded directory on your local machine using Terminal, and run the following command:
+
+<code>
+./PGDSpider2.sh
+</code>
+
+#Or can also open the program like this:
+<code>
+17.08.08 16:14/PGDSpider_2.1.1.2$ java -jar PGDSpider2.jar
+</code>
+
+
+##Baypass - used to identify high outlier and neutral SNPs
+
+#Downloaded baypass_2.1 from this website: http://www1.montpellier.inra.fr/CBGP/software/baypass/download.html
+#Navigate to the /sources/ folder from the download and compile. 
+#Make sure you have gcc installed in order to compile before running the command below.
+
+<code>
+make clean all FC=gfortran
+</code>
+
+
+#--------------------------------------- Convert genepop file format (from step 5) to Baypass format by way of bayenv format
+
+#Use PGDSpider2 to convert genepop to bayenv format
+#Make sure the genepop files are saved as .txt files, otherwise PGDSpider won't recognize them
+
+
+#Then convert bayenv to baypass formats with convert_bayenv_to_baypass.py script
+<code>
+python2 convert_bayenv_to_baypass.py coral_1808.HWE.final.cloneremoved.recode_bayenv.txt 
+</code>
+
+<output>
+Converted 1808 loci from BayEnv to BayPass format. Share and enjoy.
+</output>
+
+<code>
+python2 convert_bayenv_to_baypass.py sym_59.HWE.final.recode_bayenv.txt 
+</code>
+
+<output>
+Converted 59 loci from BayEnv to BayPass format. Share and enjoy.
+</output>
+
+ 
+#--------------------------------------- Run BayPass
+
+#Run the g_baypass script from within the /sources/ folder from the baypass download
+
+#Run separately for the host and symbiont _baypass.txt files. -npop designates the number of putative populations.
+
+
+<code>
+./g_baypass -npop 4 -gfile /Users/hannahaichelman/Documents/Manuscripts/AstrangiaSNPs/ForGithub/5-OutlierSNP_ID/revision_files/coral_1808.HWE.final.cloneremoved.recode_baypass.txt -outprefix coral_1808
+
+./g_baypass -npop 2 -gfile /Users/hannahaichelman/Documents/Manuscripts/AstrangiaSNPs/ForGithub/5-OutlierSNP_ID/revision_files/sym_59.HWE.final.recode_baypass.txt -outprefix sym_59
+</code>
+
+#The output files from this first run of the g_baypass script are then used in the BaypassScript.R script. This generates a simulated pseudo-observed data set (POD; using simulate.baypass() function). Once you run through the BaypassScript.R file through to the simulate.baypass() function, then you take the output files from that simulated dataset and run the below baypass commands in the terminal again.
+#As above, run separately for the host and symbiont files.
+
+<code>
+./g_baypass -npop 4 -gfile ./10KPOD_coral_1808_revision/G.coral_1808_POD10kAstrangia -outprefix 10KPOD_coral_1808
+
+./g_baypass -npop 2 -gfile ./10KPOD_sym_59_revision/G.sym_59_POD10kAstrangia -outprefix 10KPOD_sym_59
+</code>
+
+
+#The files produced from the second run of the g_baypass script are read back into the BaypassScript.R script. The end of the .R script is used to produce a list of high outlier SNPs, neutral SNPs, and low outlier SNPs. These lists of SNPs are then used to subset the 1 SNP per contig vcf files to get putatively neutral and putatively outlier SNPs for downstream analyses. 
+
+#--------------------------------------- Subset VCF files by neutral and high outlier SNPs
+#Use vcftools to subset similar to the method used in step 5 of the pipeline. 
+
+#Coral Neutral
+<code>
+/cm/shared/apps/vcftools/0.1.12b/bin/vcftools --vcf coral_1808.HWE.final.cloneremoved.recode.vcf --positions coral_cloneremoved_Neutral.txt --recode --recode-INFO-all --out coral_1637_cloneremoved_neutral
+</code>
+
+#Coral High Outlier
+<code>
+/cm/shared/apps/vcftools/0.1.12b/bin/vcftools --vcf coral_1808.HWE.final.cloneremoved.recode.vcf --positions coral_cloneremoved_HighOutlier.txt --recode --recode-INFO-all --out coral_84_cloneremoved_highoutliers
+</code>
+
+#Symbiont High Outlier
+<code>
+/cm/shared/apps/vcftools/0.1.12b/bin/vcftools --vcf sym_59.HWE.final.recode.vcf --positions sym_HighOutliers.txt --recode --recode-INFO-all --out sym_4_highoutliers
+</code>
+
+#Symbiont Neutral
+<code>
+/cm/shared/apps/vcftools/0.1.12b/bin/vcftools --vcf sym_59.HWE.final.recode.vcf --positions sym_Neutral.txt --recode --recode-INFO-all --out sym_52_neutral
+</code>
+
+#--------------------------------------- Filter all subsetted vcf files for 1 SNP per contig
+
+#Coral Neutral
+
+<code>
+bash ../../Filter_one_random_snp_per_contig.sh coral_1637_cloneremoved_neutral.recode.vcf
+mv coral_1637_cloneremoved_neutral.filtered1SNPper.vcf coral_279_cloneremoved_neutral.filtered1SNPper.vcf
+</code>
+
+#Coral High Outlier
+<code>
+bash ../../Filter_one_random_snp_per_contig.sh coral_84_cloneremoved_highoutliers.recode.vcf
+mv coral_84_cloneremoved_highoutliers.filtered1SNPper.vcf coral_66_cloneremoved_highoutliers.filtered1SNPper.vcf
+</code>
+
+#Symbiont Neutral
+<code>
+bash ../Filter_one_random_snp_per_contig.sh sym_52_neutral.recode.vcf
+mv sym_52_neutral.filtered1SNPper.vcf sym_20_neutral.filtered1SNPper.vcf
+</code>
+
+#Symbiont High Outlier
+<code>
+bash ../Filter_one_random_snp_per_contig.sh sym_4_highoutliers.recode.vcf 
+</code>
+#don't need to change name, keep all 4 high outliers
+
+
+#--------------------------------------- Convert all subsetted vcf files to genepop format using the vcftogenepop_advbioinf.py script
+
+#Each conversion needs a population file, provided in the GitHub folder for this section
+
+#Host files
+<code>
+python2 ../vcftogenepop_advbioinf.py coral_279_cloneremoved_neutral.filtered1SNPper.vcf ../merged_popfile_4pop.txt 
+
+python2 ../vcftogenepop_advbioinf.py coral_66_cloneremoved_highoutliers.filtered1SNPper.vcf ../merged_popfile_4pop.txt 
+</code>
+
+#Symbiont files
+<code>
+python2 vcftogenepop_advbioinf.py sym_20_neutral.filtered1SNPper.vcf merged_popfile_2pop_brown.txt
+
+python2 vcftogenepop_advbioinf.py sym_4_highoutliers.filtered1SNPper.vcf merged_popfile_2pop_brown.txt
+</code>
+
+
+#--------------------------------------- Follow the same method detailed above, but for the VA and RI independent analyses
+
+#Run Baypass
+<code>
+./g_baypass -npop 2 -gfile RI_1808.HWE.final.cloneremoved_baypass_ZerosRemoved.txt -outprefix RI_1808
+
+./g_baypass -npop 2 -gfile VA_1808.HWE.final.cloneremoved_baypass_ZerosRemoved.txt -outprefix VA_1808
+
+2020-07-20 13:43 /sources/--% ./g_baypass -npop 2 -gfile ./10KPOD_VA_revision/G.VA_revision_POD10kAstrangia -outprefix 10KPOD_VA_revision
+
+2020-07-20 14:57 /sources/--% ./g_baypass -npop 2 -gfile ./10KPOD_RI_revision/G.RI_revision_POD10kAstrangia -outprefix 10KPOD_RI_revision
+</code>
+
+#Filter vcf files for neutral and high outlier sites
+<code>
+/cm/shared/apps/vcftools/0.1.12b/bin/vcftools --vcf VA_1808.HWE.final.cloneremoved.recode.vcf --positions VA_HighOutliers.txt --recode --recode-INFO-all --out VA_49_highoutliers
+
+/cm/shared/apps/vcftools/0.1.12b/bin/vcftools --vcf VA_1808.HWE.final.cloneremoved.recode.vcf --positions VA_Neutral.txt --recode --recode-INFO-all --out VA_1660_neutral
+
+/cm/shared/apps/vcftools/0.1.12b/bin/vcftools --vcf RI_1808.HWE.final.cloneremoved.recode.vcf --positions RI_Neutral.txt --recode --recode-INFO-all --out RI_1578_neutral
+
+/cm/shared/apps/vcftools/0.1.12b/bin/vcftools --vcf RI_1808.HWE.final.cloneremoved.recode.vcf --positions RI_HighOutliers.txt --recode --recode-INFO-all --out RI_47_highoutliers
+</code>
+
+#Filter 1 SNP/contig
+bash ../../Filter_one_random_snp_per_contig.sh VA_49_highoutliers.recode.vcf
+mv VA_49_highoutliers.filtered1SNPper.vcf VA_37_highoutliers.filtered1SNPper.vcf
+
+bash ../../Filter_one_random_snp_per_contig.sh VA_1660_neutral.recode.vcf
+mv VA_1660_neutral.filtered1SNPper.vcf VA_280_neutral.filtered1SNPper.vcf
+
+bash ../../Filter_one_random_snp_per_contig.sh RI_47_highoutliers.recode.vcf
+mv RI_47_highoutliers.filtered1SNPper.vcf RI_37_highoutliers.filtered1SNPper.vcf
+
+bash ../../Filter_one_random_snp_per_contig.sh RI_1578_neutral.recode.vcf
+mv RI_1578_neutral.filtered1SNPper.vcf RI_269_neutral.filtered1SNPper.vcf
+
+#Convert to genepop format
+python2 ../vcftogenepop_advbioinf.py RI_269_neutral.filtered1SNPper.vcf merged_popfile_RI.txt 
+python2 ../vcftogenepop_advbioinf.py RI_37_highoutliers.filtered1SNPper.vcf merged_popfile_RI.txt
+python2 ../vcftogenepop_advbioinf.py VA_280_neutral.filtered1SNPper.vcf merged_popfile_VA.txt 
+python2 ../vcftogenepop_advbioinf.py VA_37_highoutliers.filtered1SNPper.vcf merged_popfile_VA.txt 
