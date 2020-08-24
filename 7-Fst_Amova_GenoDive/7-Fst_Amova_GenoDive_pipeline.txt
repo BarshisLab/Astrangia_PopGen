@@ -1,0 +1,24 @@
+#########################
+7. FST AND AMOVA ANALYSES
+#########################
+
+
+#--------------------------------------- Download and install necessary programs
+
+##GenoDive is a GUI-interface program that we used here to get pairwise differentiation (Fst) estimates for all population comparisons as well as analysis of molecular variance (AMOVA) 
+
+#Downloaded genodive from here: http://www.bentleydrummer.nl/software/software/GenoDive.html
+ 
+#Load genepop file format into GenoDive
+	* File --> Open --> select genepop file that is filtered 1 SNP/contig
+
+#To do AMOVA analysis, click on 'Analysis' tab, then follow these steps:
+	* Analysis --> AMOVA --> Advanced --> structure of allele nested within individual nested within population
+	
+#To do pairwise differentiation, or Fst, analyses, click on the 'Analysis' tab and then follow these steps:
+    * Analysis --> Pairwise Differentiation --> Amova Fs/write statistics and p-values, calculate
+
+#To do heterozygosity analyses,     
+    * Analysis --> Genetic Diversity --> Calculate
+    
+#The output of these analyses are listed in the coral&sym_genodive_output.xlsx file included in the folder for step 6 of the pipeline
