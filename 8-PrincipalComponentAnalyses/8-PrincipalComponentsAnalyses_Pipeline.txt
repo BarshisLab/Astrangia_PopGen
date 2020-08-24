@@ -1,0 +1,5 @@
+######################################
+8. PRINCIPAL COMPONENT ANALYSES (PCAS)
+######################################
+
+#To produce all PCAs included in Figures 2 and 3, we used the adegenet_PCAs_forgithub_revision.R script. Additional details included in that .R file.
